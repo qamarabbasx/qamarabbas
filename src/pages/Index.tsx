@@ -5,6 +5,7 @@ import About from '../components/About';
 import Projects from '../components/Projects';
 import Blog from '../components/Blog';
 import Contact from '../components/Contact';
+import NeonScrollBars from '../components/NeonScrollBars';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('about');
@@ -31,6 +32,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <NeonScrollBars />
       <Navigation activeSection={activeSection} setActiveSection={setActiveSection} />
       
       <main>
