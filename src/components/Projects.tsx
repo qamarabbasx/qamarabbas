@@ -66,6 +66,9 @@ const Projects: React.FC = () => {
   const categories = ["All", "Full Stack", "Web App", "Enterprise", "Mobile", "Dashboard", "AI/ML"];
   const [activeCategory, setActiveCategory] = React.useState("All");
 
+  // Create individual scroll triggers for each project
+  const projectRefs = projects.map(() => useScrollTrigger({ threshold: 0.3 }));
+
   const filteredProjects = activeCategory === "All" 
     ? projects 
     : projects.filter(project => project.category === activeCategory);
@@ -109,7 +112,8 @@ const Projects: React.FC = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project, index) => {
-              const { elementRef, isVisible } = useScrollTrigger({ threshold: 0.3 });
+              const originalIndex = projects.findIndex(p => p.title === project.title);
+              const { elementRef, isVisible } = projectRefs[originalIndex];
               
               return (
                 <div

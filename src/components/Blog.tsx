@@ -29,6 +29,9 @@ const Blog: React.FC = () => {
     }
   ];
 
+  // Create individual scroll triggers for each blog post
+  const postRefs = posts.map(() => useScrollTrigger({ threshold: 0.3 }));
+
   return (
     <section id="blog" className="min-h-screen py-20">
       <div className="container mx-auto px-6">
@@ -45,7 +48,7 @@ const Blog: React.FC = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map((post, index) => {
-              const { elementRef, isVisible } = useScrollTrigger({ threshold: 0.3 });
+              const { elementRef, isVisible } = postRefs[index];
               
               return (
                 <article

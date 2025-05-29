@@ -33,6 +33,9 @@ const Contact: React.FC = () => {
     }
   ];
 
+  // Create individual scroll triggers for each contact info item
+  const contactRefs = contactInfo.map(() => useScrollTrigger({ threshold: 0.5 }));
+
   return (
     <section id="contact" className="min-h-screen py-20 bg-secondary/20">
       <div className="container mx-auto px-6">
@@ -55,7 +58,7 @@ const Contact: React.FC = () => {
                 </h3>
                 <div className="space-y-6">
                   {contactInfo.map((info, index) => {
-                    const { elementRef, isVisible } = useScrollTrigger({ threshold: 0.5 });
+                    const { elementRef, isVisible } = contactRefs[index];
                     
                     return (
                       <div
