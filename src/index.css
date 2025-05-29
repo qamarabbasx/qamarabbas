@@ -153,7 +153,7 @@
 
   /* Fade animations */
   .fade-in {
-    @apply opacity-0 translate-y-6 transition-all duration-800 ease-out;
+    @apply opacity-0 translate-y-6 transition-all duration-700 ease-out;
   }
 
   .fade-in.visible {
