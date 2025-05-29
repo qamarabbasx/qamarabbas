@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useScrollTrigger } from '../hooks/useScrollTrigger';
-import { Download, MapPin, Calendar, Mail } from 'lucide-react';
+import { Download, MapPin, Calendar, Mail, Phone } from 'lucide-react';
 
 const About: React.FC = () => {
   const { elementRef: titleRef, isVisible: titleVisible } = useScrollTrigger({ threshold: 0.3 });
@@ -9,9 +9,10 @@ const About: React.FC = () => {
   const { elementRef: skillsRef, isVisible: skillsVisible } = useScrollTrigger({ threshold: 0.4 });
 
   const personalInfo = [
-    { icon: Calendar, label: "Age", value: "25" },
+    { icon: Calendar, label: "Age", value: "25 Years" },
     { icon: MapPin, label: "Residence", value: "Pakistan" },
     { icon: Mail, label: "Address", value: "Lahore" },
+    { icon: Phone, label: "Phone", value: "+92415456642" },
   ];
 
   const skills = [
@@ -24,122 +25,110 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="min-h-screen flex items-center justify-center py-20 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-10 w-32 h-32 rounded-full bg-neon-blue blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 rounded-full bg-neon-purple blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/3 w-24 h-24 rounded-full bg-neon-green blur-2xl animate-pulse delay-500"></div>
-      </div>
-
-      <div className="container mx-auto px-6 relative z-10">
+    <section id="about" className="min-h-screen flex items-center justify-center py-20 bg-white dark:bg-gray-900">
+      <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          {/* Header Section */}
-          <div ref={titleRef} className={`text-center mb-20 section-fade ${titleVisible ? 'visible' : ''}`}>
-            <div className="relative inline-block mb-8">
-              <div className="w-32 h-32 mx-auto rounded-full overflow-hidden neon-border bg-gradient-to-br from-neon-blue/20 to-neon-purple/20 p-1">
-                <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
-                  <span className="text-4xl font-bold text-neon-blue">QA</span>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left Side - Image */}
+            <div ref={titleRef} className={`relative transition-all duration-1000 ${titleVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+              <div className="relative">
+                <div className="w-96 h-96 mx-auto rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100 dark:from-gray-800 dark:to-gray-700 p-2">
+                  <div className="w-full h-full rounded-full bg-white dark:bg-gray-800 flex items-center justify-center shadow-2xl">
+                    <div className="text-center">
+                      <div className="w-32 h-32 mx-auto rounded-full bg-blue-500 flex items-center justify-center mb-4">
+                        <span className="text-4xl font-bold text-white">QA</span>
+                      </div>
+                      <h3 className="text-xl font-semibold text-gray-800 dark:text-white">Qamar Abbas</h3>
+                      <p className="text-gray-600 dark:text-gray-300">Software Engineer</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="absolute -top-2 -right-2 w-8 h-8 bg-neon-green rounded-full animate-pulse shadow-[0_0_20px] shadow-neon-green/50"></div>
             </div>
 
-            <h1 className={`text-5xl md:text-7xl font-bold mb-6 transition-all duration-700 ${titleVisible ? 'neon-text-scroll active' : 'neon-text-scroll'}`}>
-              <span className={`text-neon-blue ${titleVisible ? 'scroll-glow active' : 'scroll-glow'}`}>Qamar</span>{' '}
-              <span className="text-foreground">Abbas</span>
-            </h1>
-            
-            <div className="relative inline-block">
-              <p className={`text-xl md:text-2xl text-muted-foreground mb-8 transition-all duration-700 ${titleVisible ? 'scroll-glow active' : 'scroll-glow'}`}>
-                Software Engineer & Full Stack Developer
-              </p>
-              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full"></div>
-            </div>
-          </div>
-          
-          <div ref={contentRef} className={`section-fade ${contentVisible ? 'visible' : ''}`}>
-            <div className="grid lg:grid-cols-2 gap-12 items-start">
-              {/* About Content */}
+            {/* Right Side - Content */}
+            <div ref={contentRef} className={`transition-all duration-1000 delay-300 ${contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
               <div className="space-y-8">
                 <div>
-                  <h2 className={`text-3xl font-semibold mb-6 text-neon-purple transition-all duration-700 ${contentVisible ? 'neon-text-scroll active' : 'neon-text-scroll'}`}>
-                    About Me
+                  <span className="text-blue-500 font-medium text-lg">- Nice to meet you!</span>
+                  <h1 className="text-5xl font-bold text-gray-900 dark:text-white mt-4 mb-6">
+                    Qamar Abbas
+                  </h1>
+                  <h2 className="text-2xl text-gray-600 dark:text-gray-300 mb-8">
+                    Software Engineer & Full Stack Developer
                   </h2>
-                  <div className="space-y-4 text-muted-foreground leading-relaxed">
-                    <p>
-                      Backend-focused Full Stack Developer with 4+ years of experience in the MERN stack, 
-                      specializing in technical architecture and scalable API development.
-                    </p>
-                    <p>
-                      Proficient in building robust server-side logic, integrating modern frontend interfaces, 
-                      and delivering high-performance web applications that scale with business needs.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Personal Info */}
-                <div className="grid grid-cols-1 gap-4">
-                  {personalInfo.map((info, index) => (
-                    <div key={index} className="flex items-center space-x-4 p-4 rounded-lg neon-border hover:bg-card/50 transition-all duration-300 card-hover">
-                      <div className="w-10 h-10 rounded-full bg-neon-blue/10 flex items-center justify-center">
-                        <info.icon className="w-5 h-5 text-neon-blue" />
-                      </div>
-                      <div>
-                        <span className="text-sm text-muted-foreground">{info.label}</span>
-                        <p className="font-medium">{info.value}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <button className="group flex items-center space-x-3 px-8 py-4 rounded-lg bg-gradient-to-r from-neon-blue/10 to-neon-purple/10 border border-neon-blue/30 hover:border-neon-blue transition-all duration-500 button-hover">
-                  <Download className="w-5 h-5 text-neon-blue group-hover:animate-bounce" />
-                  <span className="text-neon-blue font-medium">Download CV</span>
-                </button>
-              </div>
-              
-              {/* Skills Section */}
-              <div ref={skillsRef} className="space-y-8">
-                <h3 className={`text-2xl font-semibold text-neon-green transition-all duration-700 ${skillsVisible ? 'neon-text-scroll active' : 'neon-text-scroll'}`}>
-                  My Skills
-                </h3>
-                
-                <div className="space-y-6">
-                  {skills.map((skill, index) => (
-                    <div key={index} className={`skill-item transition-all duration-700 delay-${index * 100}`}>
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="text-foreground font-medium">{skill.name}</span>
-                        <span className="text-neon-blue text-sm">{skill.percentage}%</span>
-                      </div>
-                      <div className="w-full bg-secondary/50 rounded-full h-2 overflow-hidden">
-                        <div 
-                          className={`h-full bg-gradient-to-r from-neon-blue to-neon-purple rounded-full transition-all duration-1000 shadow-[0_0_10px] shadow-neon-blue/30 ${skillsVisible ? 'skill-animate' : 'w-0'}`}
-                          style={{ 
-                            width: skillsVisible ? `${skill.percentage}%` : '0%',
-                            animationDelay: `${index * 200}ms`
-                          }}
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className={`neon-border rounded-lg p-6 bg-card/50 transition-all duration-700 ${skillsVisible ? 'card-glow active' : 'card-glow'}`}>
-                  <div className="flex items-center space-x-4 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-neon-green/20 to-neon-blue/20 flex items-center justify-center">
-                      <span className="text-2xl">🚀</span>
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-semibold text-neon-green">4+ Years</h4>
-                      <p className="text-sm text-muted-foreground">Experience</p>
-                    </div>
-                  </div>
-                  <p className="text-sm text-muted-foreground">
-                    Specialized in scalable backend architectures and modern frontend frameworks.
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
+                    Backend-focused Full Stack Developer with 4+ years of experience in the MERN stack, 
+                    specializing in technical architecture and scalable API development. Proficient in building 
+                    robust server-side logic, integrating modern frontend interfaces, and delivering 
+                    high-performance web applications that scale with business needs.
                   </p>
                 </div>
+
+                {/* Personal Info Grid */}
+                <div className="grid grid-cols-2 gap-6">
+                  {personalInfo.map((info, index) => (
+                    <div key={index} className="flex items-center space-x-3">
+                      <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+                        <info.icon className="w-4 h-4 text-blue-500" />
+                      </div>
+                      <div>
+                        <span className="text-sm text-gray-500 dark:text-gray-400 block">{info.label}</span>
+                        <span className="font-medium text-gray-800 dark:text-white">{info.value}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <button className="inline-flex items-center space-x-3 bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-full transition-colors duration-300">
+                  <Download className="w-5 h-5" />
+                  <span className="font-medium">Download CV</span>
+                </button>
               </div>
+            </div>
+          </div>
+
+          {/* Skills Section */}
+          <div ref={skillsRef} className={`mt-20 transition-all duration-1000 delay-600 ${skillsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">My Skills</h3>
+              <p className="text-gray-600 dark:text-gray-300">What I bring to the table</p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {skills.map((skill, index) => (
+                <div key={index} className="text-center">
+                  <div className="relative w-32 h-32 mx-auto mb-4">
+                    <svg className="w-32 h-32 transform -rotate-90" viewBox="0 0 100 100">
+                      <circle
+                        cx="50"
+                        cy="50"
+                        r="40"
+                        stroke="currentColor"
+                        strokeWidth="8"
+                        fill="transparent"
+                        className="text-gray-200 dark:text-gray-700"
+                      />
+                      <circle
+                        cx="50"
+                        cy="50"
+                        r="40"
+                        stroke="currentColor"
+                        strokeWidth="8"
+                        fill="transparent"
+                        strokeDasharray={`${2 * Math.PI * 40}`}
+                        strokeDashoffset={`${2 * Math.PI * 40 * (1 - (skillsVisible ? skill.percentage : 0) / 100)}`}
+                        className="text-blue-500 transition-all duration-2000 ease-out"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="text-2xl font-bold text-gray-900 dark:text-white">{skill.percentage}%</span>
+                    </div>
+                  </div>
+                  <h4 className="font-semibold text-gray-900 dark:text-white">{skill.name}</h4>
+                </div>
+              ))}
             </div>
           </div>
         </div>

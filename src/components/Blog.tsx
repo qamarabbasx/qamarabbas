@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useScrollTrigger } from '../hooks/useScrollTrigger';
+import { Calendar, Clock, ArrowRight } from 'lucide-react';
 
 const Blog: React.FC = () => {
   const { elementRef: headerRef, isVisible: headerVisible } = useScrollTrigger({ threshold: 0.3 });
@@ -11,21 +12,24 @@ const Blog: React.FC = () => {
       excerpt: "Best practices for architecting scalable full-stack applications using the MERN stack.",
       date: "2024-01-15",
       readTime: "8 min read",
-      color: "neon-blue"
+      image: "/placeholder.svg",
+      category: "Development"
     },
     {
       title: "Modern React Patterns & Hooks",
       excerpt: "Exploring advanced React patterns and custom hooks for better code organization.",
       date: "2024-01-10",
       readTime: "6 min read",
-      color: "neon-purple"
+      image: "/placeholder.svg",
+      category: "React"
     },
     {
       title: "Database Optimization Strategies",
       excerpt: "Techniques for optimizing database performance in Node.js applications.",
       date: "2024-01-05",
       readTime: "10 min read",
-      color: "neon-green"
+      image: "/placeholder.svg",
+      category: "Backend"
     }
   ];
 
@@ -33,16 +37,16 @@ const Blog: React.FC = () => {
   const postRefs = posts.map(() => useScrollTrigger({ threshold: 0.3 }));
 
   return (
-    <section id="blog" className="min-h-screen py-20">
+    <section id="blog" className="min-h-screen py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <div ref={headerRef} className={`text-center mb-16 section-fade ${headerVisible ? 'visible' : ''}`}>
-            <h2 className={`text-4xl md:text-5xl font-bold mb-6 transition-all duration-700 ${headerVisible ? 'neon-text-scroll active' : 'neon-text-scroll'}`}>
-              <span className={`text-neon-green ${headerVisible ? 'scroll-glow active animate-glow' : 'scroll-glow'}`}>Latest</span>{' '}
-              <span className="text-foreground">Blog Posts</span>
+          <div ref={headerRef} className={`text-center mb-16 transition-all duration-1000 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <span className="text-blue-500 font-medium text-lg">- My Blog</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mt-4 mb-6">
+              Latest Articles
             </h2>
-            <p className="text-xl text-muted-foreground">
-              Insights and tutorials on modern web development
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              Insights and tutorials on modern web development and software engineering
             </p>
           </div>
 
@@ -54,26 +58,46 @@ const Blog: React.FC = () => {
                 <article
                   key={index}
                   ref={elementRef}
-                  className={`group neon-border rounded-lg p-6 bg-card/50 hover:bg-card/80 transition-all duration-700 cursor-pointer card-hover section-fade ${isVisible ? 'visible card-glow active' : 'card-glow'}`}
+                  className={`group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform cursor-pointer ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} hover:-translate-y-2`}
                   style={{ animationDelay: `${index * 200}ms` }}
                 >
-                  <div className="mb-4">
-                    <div className="flex items-center justify-between text-sm text-muted-foreground mb-3 transition-all duration-300 group-hover:text-foreground">
-                      <span>{post.date}</span>
-                      <span>{post.readTime}</span>
+                  {/* Post Image */}
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={post.image} 
+                      alt={post.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                      {post.category}
                     </div>
-                    <h3 className={`text-xl font-semibold mb-3 text-${post.color} transition-all duration-700 ${isVisible ? 'neon-text-scroll active neon-glow group-hover:neon-flicker' : 'neon-text-scroll neon-glow'}`}>
+                  </div>
+
+                  {/* Post Content */}
+                  <div className="p-6">
+                    <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3 space-x-4">
+                      <div className="flex items-center space-x-1">
+                        <Calendar className="w-4 h-4" />
+                        <span>{post.date}</span>
+                      </div>
+                      <div className="flex items-center space-x-1">
+                        <Clock className="w-4 h-4" />
+                        <span>{post.readTime}</span>
+                      </div>
+                    </div>
+
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-500 transition-colors duration-300">
                       {post.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed transition-all duration-300 group-hover:text-foreground">
+
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
                       {post.excerpt}
                     </p>
-                  </div>
-                  
-                  <div className="pt-4 border-t border-border">
-                    <span className={`text-sm text-neon-blue hover:text-neon-purple transition-all duration-500 ${isVisible ? 'neon-text-scroll active' : 'neon-text-scroll'} cursor-pointer`}>
-                      Read more →
-                    </span>
+                    
+                    <div className="flex items-center text-blue-500 font-medium group-hover:text-blue-600 transition-colors duration-300">
+                      <span className="mr-2">Read more</span>
+                      <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+                    </div>
                   </div>
                 </article>
               );
@@ -81,7 +105,7 @@ const Blog: React.FC = () => {
           </div>
 
           <div className="text-center mt-12">
-            <button className={`neon-border px-8 py-3 rounded-lg text-neon-blue hover:text-neon-purple button-hover ${headerVisible ? 'neon-text-scroll active hover:animate-pulse-neon' : 'neon-text-scroll'}`}>
+            <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full transition-colors duration-300 font-medium">
               View All Posts
             </button>
           </div>
