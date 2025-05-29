@@ -1,6 +1,8 @@
+
 import React from 'react';
 import { useScrollTrigger } from '../hooks/useScrollTrigger';
 import { Download, MapPin, Calendar, Mail, Phone, Linkedin, Github } from 'lucide-react';
+import Typewriter from './Typewriter';
 
 const About: React.FC = () => {
   const { elementRef: titleRef, isVisible: titleVisible } = useScrollTrigger({ threshold: 0.3 });
@@ -38,6 +40,8 @@ const About: React.FC = () => {
     }
   ];
 
+  const typewriterWords = ["Software Engineer", "Web Designer", "Freelancer", "Backend Developer", "Full Stack Developer"];
+
   return (
     <section id="about" className="min-h-screen flex items-center justify-center py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-6">
@@ -52,6 +56,19 @@ const About: React.FC = () => {
                       src="/lovable-uploads/c0614d71-0e04-4882-a4d7-0c1ebd835e7f.png" 
                       alt="Qamar Abbas - Software Engineer"
                       className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                </div>
+                {/* Typewriter effect below image */}
+                <div className="text-center mt-8">
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                    A Passionate
+                  </h3>
+                  <div className="text-xl">
+                    <Typewriter 
+                      words={typewriterWords}
+                      delay={100}
+                      className="text-blue-500 font-semibold"
                     />
                   </div>
                 </div>
