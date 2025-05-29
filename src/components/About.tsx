@@ -51,7 +51,7 @@ const About: React.FC = () => {
                     <img 
                       src="/lovable-uploads/c0614d71-0e04-4882-a4d7-0c1ebd835e7f.png" 
                       alt="Qamar Abbas - Software Engineer"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-top"
                     />
                   </div>
                 </div>
