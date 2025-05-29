@@ -2,6 +2,7 @@
 import React from 'react';
 import { useScrollTrigger } from '../hooks/useScrollTrigger';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Blog: React.FC = () => {
   const { elementRef: headerRef, isVisible: headerVisible } = useScrollTrigger({ threshold: 0.3 });
@@ -9,27 +10,30 @@ const Blog: React.FC = () => {
   const posts = [
     {
       title: "Building Scalable MERN Applications",
-      excerpt: "Best practices for architecting scalable full-stack applications using the MERN stack.",
+      excerpt: "Best practices for architecting scalable full-stack applications using the MERN stack. Learn from real-world experience with TaskPay and Clone Hub projects.",
       date: "2024-01-15",
       readTime: "8 min read",
       image: "/placeholder.svg",
-      category: "Development"
+      category: "Development",
+      slug: "building-scalable-mern-applications"
     },
     {
       title: "Modern React Patterns & Hooks",
-      excerpt: "Exploring advanced React patterns and custom hooks for better code organization.",
+      excerpt: "Exploring advanced React patterns and custom hooks for better code organization. Insights from building high-performance user interfaces.",
       date: "2024-01-10",
       readTime: "6 min read",
       image: "/placeholder.svg",
-      category: "React"
+      category: "React",
+      slug: "modern-react-patterns-hooks"
     },
     {
       title: "Database Optimization Strategies",
-      excerpt: "Techniques for optimizing database performance in Node.js applications.",
+      excerpt: "Techniques for optimizing database performance in Node.js applications. Real-world strategies that improved our API response times by 30%.",
       date: "2024-01-05",
       readTime: "10 min read",
       image: "/placeholder.svg",
-      category: "Backend"
+      category: "Backend",
+      slug: "database-optimization-strategies"
     }
   ];
 
@@ -55,10 +59,11 @@ const Blog: React.FC = () => {
               const { elementRef, isVisible } = postRefs[index];
               
               return (
-                <article
+                <Link
                   key={index}
+                  to={`/blog/${post.slug}`}
                   ref={elementRef}
-                  className={`group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform cursor-pointer ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} hover:-translate-y-2`}
+                  className={`group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform cursor-pointer ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} hover:-translate-y-2 block`}
                   style={{ animationDelay: `${index * 200}ms` }}
                 >
                   {/* Post Image */}
@@ -99,15 +104,15 @@ const Blog: React.FC = () => {
                       <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
                   </div>
-                </article>
+                </Link>
               );
             })}
           </div>
 
           <div className="text-center mt-12">
-            <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full transition-colors duration-300 font-medium">
-              View All Posts
-            </button>
+            <p className="text-gray-600 dark:text-gray-300 text-lg">
+              More articles coming soon! Follow my journey in software development.
+            </p>
           </div>
         </div>
       </div>
