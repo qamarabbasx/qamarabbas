@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useScrollTrigger } from '../hooks/useScrollTrigger';
-import { Download, MapPin, Calendar, Mail, Phone } from 'lucide-react';
+import { Download, MapPin, Calendar, Mail, Phone, Linkedin, Github } from 'lucide-react';
 
 const About: React.FC = () => {
   const { elementRef: titleRef, isVisible: titleVisible } = useScrollTrigger({ threshold: 0.3 });
@@ -9,19 +9,34 @@ const About: React.FC = () => {
   const { elementRef: skillsRef, isVisible: skillsVisible } = useScrollTrigger({ threshold: 0.4 });
 
   const personalInfo = [
-    { icon: Calendar, label: "Age", value: "25 Years" },
-    { icon: MapPin, label: "Residence", value: "Pakistan" },
-    { icon: Mail, label: "Address", value: "Lahore" },
-    { icon: Phone, label: "Phone", value: "+92415456642" },
+    { icon: Calendar, label: "Experience", value: "4+ Years" },
+    { icon: MapPin, label: "Location", value: "Lahore, Pakistan" },
+    { icon: Mail, label: "Email", value: "reply.qamar@gmail.com" },
+    { icon: Phone, label: "Phone", value: "+923415456062" },
   ];
 
   const skills = [
-    { name: "React.js", percentage: 95 },
-    { name: "Node.js", percentage: 90 },
-    { name: "MongoDB", percentage: 85 },
+    { name: "Node.js", percentage: 95 },
+    { name: "Next.js", percentage: 90 },
+    { name: "Nest.js", percentage: 90 },
     { name: "TypeScript", percentage: 88 },
-    { name: "Next.js", percentage: 82 },
-    { name: "PostgreSQL", percentage: 80 },
+    { name: "PostgreSQL", percentage: 85 },
+    { name: "MongoDB", percentage: 85 },
+  ];
+
+  const workExperience = [
+    {
+      company: "Vaival Technologies",
+      position: "Software Engineer",
+      duration: "June 2023 – Present",
+      location: "Lahore, Pakistan"
+    },
+    {
+      company: "Blinkers",
+      position: "Associate Software Engineer", 
+      duration: "Jan 2021 – June 2023",
+      location: "Lahore, Pakistan"
+    }
   ];
 
   return (
@@ -55,13 +70,13 @@ const About: React.FC = () => {
                     Qamar Abbas
                   </h1>
                   <h2 className="text-2xl text-gray-600 dark:text-gray-300 mb-8">
-                    Software Engineer & Full Stack Developer
+                    Backend-focused Full Stack Developer
                   </h2>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
-                    Backend-focused Full Stack Developer with 4+ years of experience in the MERN stack, 
-                    specializing in technical architecture and scalable API development. Proficient in building 
+                    Backend-focused Full-Stack Developer with 4+ years of experience in the MERN stack, 
+                    specializing in backend architecture and scalable API development. Proficient in building 
                     robust server-side logic, integrating modern frontend interfaces, and delivering 
-                    high-performance web applications that scale with business needs.
+                    high-performance web applications.
                   </p>
                 </div>
 
@@ -80,6 +95,26 @@ const About: React.FC = () => {
                   ))}
                 </div>
 
+                {/* Social Links */}
+                <div className="flex items-center space-x-4">
+                  <a 
+                    href="https://linkedin.com/in/qamar-abbas-8138b911a/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="p-3 rounded-full bg-blue-100 dark:bg-blue-900/30 hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors duration-300"
+                  >
+                    <Linkedin className="w-5 h-5 text-blue-500" />
+                  </a>
+                  <a 
+                    href="https://github.com/qamarabbasx" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
+                  >
+                    <Github className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+                  </a>
+                </div>
+
                 <button className="inline-flex items-center space-x-3 bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-full transition-colors duration-300">
                   <Download className="w-5 h-5" />
                   <span className="font-medium">Download CV</span>
@@ -88,11 +123,30 @@ const About: React.FC = () => {
             </div>
           </div>
 
+          {/* Work Experience Section */}
+          <div className="mt-20">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Work Experience</h3>
+              <p className="text-gray-600 dark:text-gray-300">Professional journey</p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              {workExperience.map((job, index) => (
+                <div key={index} className="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl">
+                  <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{job.position}</h4>
+                  <h5 className="text-lg font-semibold text-blue-500 mb-2">{job.company}</h5>
+                  <p className="text-gray-600 dark:text-gray-300 mb-1">{job.duration}</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm">{job.location}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* Skills Section */}
           <div ref={skillsRef} className={`mt-20 transition-all duration-1000 delay-600 ${skillsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">My Skills</h3>
-              <p className="text-gray-600 dark:text-gray-300">What I bring to the table</p>
+              <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Technical Skills</h3>
+              <p className="text-gray-600 dark:text-gray-300">Core competencies</p>
             </div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -129,6 +183,19 @@ const About: React.FC = () => {
                   <h4 className="font-semibold text-gray-900 dark:text-white">{skill.name}</h4>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Education Section */}
+          <div className="mt-20">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Education</h3>
+            </div>
+            
+            <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl text-center">
+              <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">BS in Software Engineering</h4>
+              <h5 className="text-lg font-semibold text-blue-500 mb-2">University of Sargodha</h5>
+              <p className="text-gray-600 dark:text-gray-300">Aug 2015 – June 2019</p>
             </div>
           </div>
         </div>

@@ -8,50 +8,46 @@ const Projects: React.FC = () => {
 
   const projects = [
     {
-      title: "TaskJoy — Secure Service Contracting Platform",
-      description: "Full-stack platform for secure service contracting with real-time features and comprehensive backend architecture.",
+      title: "TaskPay — Secure Service Contracting Platform",
+      description: "Built a scalable platform using Next.js and Google Cloud, supporting thousands of real-time transactions weekly. Integrated ACH, Wire, RTP payments via IBANERA, NMI, and PayPal, increasing success rates by 30%.",
       image: "/placeholder.svg",
-      tech: ["Next.js", "Node.js", "PostgreSQL", "Stripe"],
-      category: "Full Stack"
+      tech: ["Nest.js", "Next.js", "GCP", "Fireblocks", "NMI", "PayPal", "PostgreSQL"],
+      category: "Full Stack",
+      url: "https://taskpay.com"
     },
     {
-      title: "Commercial Real Estate Platform",
-      description: "Engineered full-service platform with advanced property management and integrated payment systems.",
+      title: "Clone Hub — AI-Powered Digital Engagement Platform",
+      description: "Developed a SaaS product with Next.js and PostgreSQL, powering over 10,000 AI clones for 24/7 audience engagement. Boosted user retention by 40% with monetization via subscriptions and pay-per-use.",
       image: "/placeholder.svg",
-      tech: ["React", "Node.js", "MongoDB", "Stripe"],
-      category: "Web App"
+      tech: ["Nest.js", "Next.js", "PostgreSQL", "AI/ML"],
+      category: "SaaS",
+      url: "https://clonehub.com"
     },
     {
-      title: "University Management System",
-      description: "Comprehensive university management system with student tracking and administrative features.",
+      title: "AAA Protect — Comprehensive Protection Platform",
+      description: "Engineered a full-service platform using Next.js, Nest.js, and MongoDB, serving 5,000+ commercial drivers. Integrated Stripe for secure payment handling, increasing transaction success by 30%.",
       image: "/placeholder.svg",
-      tech: ["MERN Stack", "Express.js", "MongoDB"],
+      tech: ["Nest.js", "Next.js", "MongoDB", "Stripe"],
+      category: "Enterprise",
+      url: "https://portal.aaaprotect.com"
+    },
+    {
+      title: "Warehouse Management System",
+      description: "Developed a centralized warehouse management system integrated with Amazon, Shopify, and Walmart, reducing order errors by 40% and streamlining inventory workflows.",
+      image: "/placeholder.svg",
+      tech: ["Node.js", "Express", "React", "MySQL", "MongoDB"],
       category: "Enterprise"
     },
     {
-      title: "E-Commerce Mobile App",
-      description: "Cross-platform mobile application with modern UI and seamless shopping experience.",
+      title: "Custom Shopify Apps",
+      description: "Led development of custom Shopify apps using Gadget.dev platform, enabling seamless e-commerce integrations and increasing merchant adoption by 40%.",
       image: "/placeholder.svg",
-      tech: ["React Native", "Node.js", "MongoDB"],
-      category: "Mobile"
-    },
-    {
-      title: "Analytics Dashboard",
-      description: "Real-time data visualization dashboard with advanced filtering and reporting capabilities.",
-      image: "/placeholder.svg",
-      tech: ["React", "D3.js", "Python", "PostgreSQL"],
-      category: "Dashboard"
-    },
-    {
-      title: "AI Chat Application",
-      description: "Intelligent chat application with natural language processing and machine learning integration.",
-      image: "/placeholder.svg",
-      tech: ["Next.js", "OpenAI", "WebSocket", "Redis"],
-      category: "AI/ML"
+      tech: ["Node.js", "Gadget.dev", "Shopify API", "Express"],
+      category: "E-commerce"
     }
   ];
 
-  const categories = ["All", "Full Stack", "Web App", "Enterprise", "Mobile", "Dashboard", "AI/ML"];
+  const categories = ["All", "Full Stack", "SaaS", "Enterprise", "E-commerce"];
   const [activeCategory, setActiveCategory] = React.useState("All");
 
   // Create individual scroll triggers for each project
@@ -71,7 +67,7 @@ const Projects: React.FC = () => {
               Featured Projects
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
-              A showcase of my recent work and technical expertise in modern web development
+              Showcasing real-world applications and technical expertise in modern web development
             </p>
 
             {/* Category Filter */}
@@ -119,9 +115,16 @@ const Projects: React.FC = () => {
                         <button className="p-3 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors duration-300">
                           <Github className="w-5 h-5 text-white" />
                         </button>
-                        <button className="p-3 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors duration-300">
-                          <ExternalLink className="w-5 h-5 text-white" />
-                        </button>
+                        {project.url && (
+                          <a 
+                            href={project.url} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="p-3 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors duration-300"
+                          >
+                            <ExternalLink className="w-5 h-5 text-white" />
+                          </a>
+                        )}
                       </div>
                     </div>
                     <div className="absolute top-4 right-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
@@ -154,13 +157,6 @@ const Projects: React.FC = () => {
                 </div>
               );
             })}
-          </div>
-
-          {/* View More Button */}
-          <div className="text-center mt-16">
-            <button className="bg-blue-500 hover:bg-blue-600 text-white px-12 py-4 rounded-full transition-colors duration-300 font-medium">
-              View All Projects
-            </button>
           </div>
         </div>
       </div>
