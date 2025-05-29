@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useScrollTrigger } from '../hooks/useScrollTrigger';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
@@ -12,7 +13,7 @@ const Blog: React.FC = () => {
       excerpt: "Best practices for architecting scalable full-stack applications using the MERN stack. Learn from real-world experience with TaskPay and Clone Hub projects.",
       date: "2024-01-15",
       readTime: "8 min read",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=250&fit=crop",
       category: "Development",
       slug: "building-scalable-mern-applications"
     },
@@ -21,7 +22,7 @@ const Blog: React.FC = () => {
       excerpt: "Exploring advanced React patterns and custom hooks for better code organization. Insights from building high-performance user interfaces.",
       date: "2024-01-10",
       readTime: "6 min read",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=250&fit=crop",
       category: "React",
       slug: "modern-react-patterns-hooks"
     },
@@ -30,7 +31,7 @@ const Blog: React.FC = () => {
       excerpt: "Techniques for optimizing database performance in Node.js applications. Real-world strategies that improved our API response times by 30%.",
       date: "2024-01-05",
       readTime: "10 min read",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=400&h=250&fit=crop",
       category: "Backend",
       slug: "database-optimization-strategies"
     }
