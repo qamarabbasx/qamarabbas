@@ -1,12 +1,19 @@
-
 import React from 'react';
 import { useScrollTrigger } from '../hooks/useScrollTrigger';
 import { ExternalLink, Github, Eye } from 'lucide-react';
 import { useToast } from '../hooks/use-toast';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from './ui/dialog';
 
 const Projects: React.FC = () => {
   const { elementRef: headerRef, isVisible: headerVisible } = useScrollTrigger({ threshold: 0.3 });
   const { toast } = useToast();
+  const [selectedProject, setSelectedProject] = React.useState<any>(null);
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
 
   const handleGithubClick = () => {
     toast({
@@ -21,6 +28,13 @@ const Projects: React.FC = () => {
         contactElement.scrollIntoView({ behavior: 'smooth' });
       }
     }, 1000);
+  };
+
+  const handlePreviewClick = (project: any) => {
+    if (project.url) {
+      setSelectedProject(project);
+      setIsModalOpen(true);
+    }
   };
 
   const projects = [
@@ -126,7 +140,11 @@ const Projects: React.FC = () => {
                     />
                     <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <div className="flex space-x-4">
-                        <button className="p-3 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors duration-300">
+                        <button 
+                          onClick={() => handlePreviewClick(project)}
+                          className="p-3 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors duration-300"
+                          disabled={!project.url}
+                        >
                           <Eye className="w-5 h-5 text-white" />
                         </button>
                         <button 
@@ -180,6 +198,27 @@ const Projects: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Preview Modal */}
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <DialogContent className="max-w-6xl w-full h-[80vh]">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-bold">
+              {selectedProject?.title} - Live Preview
+            </DialogTitle>
+          </DialogHeader>
+          <div className="flex-1 min-h-0">
+            {selectedProject?.url && (
+              <iframe
+                src={selectedProject.url}
+                className="w-full h-full border-0 rounded-lg"
+                title={`Preview of ${selectedProject.title}`}
+                sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+              />
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
