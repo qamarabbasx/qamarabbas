@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useScrollTrigger } from '../hooks/useScrollTrigger';
 import { Download, MapPin, Calendar, Mail, Phone, Linkedin, Github } from 'lucide-react';
@@ -48,14 +47,12 @@ const About: React.FC = () => {
             <div ref={titleRef} className={`relative transition-all duration-1000 ${titleVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
               <div className="relative">
                 <div className="w-96 h-96 mx-auto rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100 dark:from-gray-800 dark:to-gray-700 p-2">
-                  <div className="w-full h-full rounded-full bg-white dark:bg-gray-800 flex items-center justify-center shadow-2xl">
-                    <div className="text-center">
-                      <div className="w-32 h-32 mx-auto rounded-full bg-blue-500 flex items-center justify-center mb-4">
-                        <span className="text-4xl font-bold text-white">QA</span>
-                      </div>
-                      <h3 className="text-xl font-semibold text-gray-800 dark:text-white">Qamar Abbas</h3>
-                      <p className="text-gray-600 dark:text-gray-300">Software Engineer</p>
-                    </div>
+                  <div className="w-full h-full rounded-full overflow-hidden shadow-2xl">
+                    <img 
+                      src="/lovable-uploads/c0614d71-0e04-4882-a4d7-0c1ebd835e7f.png" 
+                      alt="Qamar Abbas - Software Engineer"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
               </div>
