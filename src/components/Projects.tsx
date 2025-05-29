@@ -2,9 +2,26 @@
 import React from 'react';
 import { useScrollTrigger } from '../hooks/useScrollTrigger';
 import { ExternalLink, Github, Eye } from 'lucide-react';
+import { useToast } from '../hooks/use-toast';
 
 const Projects: React.FC = () => {
   const { elementRef: headerRef, isVisible: headerVisible } = useScrollTrigger({ threshold: 0.3 });
+  const { toast } = useToast();
+
+  const handleGithubClick = () => {
+    toast({
+      title: "Contact Developer",
+      description: "Please contact me to see the source code for this project.",
+    });
+    
+    // Redirect to contact section
+    setTimeout(() => {
+      const contactElement = document.getElementById('contact');
+      if (contactElement) {
+        contactElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 1000);
+  };
 
   const projects = [
     {
@@ -112,7 +129,10 @@ const Projects: React.FC = () => {
                         <button className="p-3 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors duration-300">
                           <Eye className="w-5 h-5 text-white" />
                         </button>
-                        <button className="p-3 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors duration-300">
+                        <button 
+                          onClick={handleGithubClick}
+                          className="p-3 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors duration-300"
+                        >
                           <Github className="w-5 h-5 text-white" />
                         </button>
                         {project.url && (
