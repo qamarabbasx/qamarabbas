@@ -60,7 +60,7 @@ const Projects: React.FC = () => {
       image: "/placeholder.svg",
       tech: ["Nest.js", "Next.js", "MongoDB", "Stripe"],
       category: "Enterprise",
-      url: "https://portal.aaaprotect.com"
+      url: "https://aaaprotect.com/"
     },
     {
       title: "Warehouse Management System",
