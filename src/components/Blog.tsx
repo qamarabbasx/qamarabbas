@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useScrollTrigger } from '../hooks/useScrollTrigger';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
@@ -37,8 +36,8 @@ const Blog: React.FC = () => {
     }
   ];
 
-  // Create individual scroll triggers for each blog post
-  const postRefs = posts.map(() => useScrollTrigger({ threshold: 0.3 }));
+  // Create individual scroll triggers for each blog post with proper typing
+  const postRefs = posts.map(() => useScrollTrigger<HTMLAnchorElement>({ threshold: 0.3 }));
 
   return (
     <section id="blog" className="min-h-screen py-20 bg-white dark:bg-gray-900">

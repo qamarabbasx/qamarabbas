@@ -6,9 +6,9 @@ interface UseScrollTriggerOptions {
   rootMargin?: string;
 }
 
-export const useScrollTrigger = (options: UseScrollTriggerOptions = {}) => {
+export const useScrollTrigger = <T extends HTMLElement = HTMLDivElement>(options: UseScrollTriggerOptions = {}) => {
   const [isVisible, setIsVisible] = useState(false);
-  const elementRef = useRef<HTMLDivElement>(null);
+  const elementRef = useRef<T>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
