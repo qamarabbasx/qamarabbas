@@ -8,7 +8,7 @@ interface UseScrollTriggerOptions {
 
 export const useScrollTrigger = (options: UseScrollTriggerOptions = {}) => {
   const [isVisible, setIsVisible] = useState(false);
-  const elementRef = useRef<HTMLElement>(null);
+  const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

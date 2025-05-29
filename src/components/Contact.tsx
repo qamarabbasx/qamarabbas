@@ -61,15 +61,15 @@ const Contact: React.FC = () => {
                       <div
                         key={index}
                         ref={elementRef}
-                        className={`group flex items-center space-x-4 p-4 rounded-lg neon-border hover:bg-card/50 transition-all duration-500 ${isVisible ? 'card-glow active' : 'card-glow'}`}
+                        className={`group flex items-center space-x-4 p-4 rounded-lg neon-border hover:bg-card/50 transition-all duration-500 card-hover ${isVisible ? 'card-glow active' : 'card-glow'}`}
                         style={{ animationDelay: `${index * 100}ms` }}
                       >
                         <div className={`w-3 h-3 rounded-full bg-${info.color} shadow-[0_0_10px] shadow-${info.color}/50 transition-all duration-500 ${isVisible ? 'animate-pulse' : ''}`} />
                         <div className="flex-1">
-                          <p className="text-sm text-muted-foreground">{info.label}</p>
+                          <p className="text-sm text-muted-foreground transition-all duration-300 group-hover:text-foreground">{info.label}</p>
                           <a
                             href={info.href}
-                            className={`text-${info.color} transition-all duration-500 ${isVisible ? 'neon-text-scroll active hover:neon-flicker' : 'neon-text-scroll'}`}
+                            className={`text-${info.color} transition-all duration-500 ${isVisible ? 'neon-text-scroll active hover:neon-flicker' : 'neon-text-scroll'} hover:underline`}
                           >
                             {info.value}
                           </a>
@@ -98,7 +98,7 @@ const Contact: React.FC = () => {
                   <label className="block text-sm font-medium mb-2">Name</label>
                   <input
                     type="text"
-                    className={`w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-neon-blue focus:outline-none transition-all duration-500 ${contentVisible ? 'focus:shadow-[0_0_15px] focus:shadow-neon-blue/30' : 'focus:shadow-[0_0_10px] focus:shadow-neon-blue/20'}`}
+                    className={`w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-neon-blue focus:outline-none form-input ${contentVisible ? 'focus:shadow-[0_0_15px] focus:shadow-neon-blue/30' : 'focus:shadow-[0_0_10px] focus:shadow-neon-blue/20'}`}
                     placeholder="Your name"
                   />
                 </div>
@@ -107,7 +107,7 @@ const Contact: React.FC = () => {
                   <label className="block text-sm font-medium mb-2">Email</label>
                   <input
                     type="email"
-                    className={`w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-neon-blue focus:outline-none transition-all duration-500 ${contentVisible ? 'focus:shadow-[0_0_15px] focus:shadow-neon-blue/30' : 'focus:shadow-[0_0_10px] focus:shadow-neon-blue/20'}`}
+                    className={`w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-neon-blue focus:outline-none form-input ${contentVisible ? 'focus:shadow-[0_0_15px] focus:shadow-neon-blue/30' : 'focus:shadow-[0_0_10px] focus:shadow-neon-blue/20'}`}
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -116,14 +116,14 @@ const Contact: React.FC = () => {
                   <label className="block text-sm font-medium mb-2">Message</label>
                   <textarea
                     rows={5}
-                    className={`w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-neon-blue focus:outline-none resize-none transition-all duration-500 ${contentVisible ? 'focus:shadow-[0_0_15px] focus:shadow-neon-blue/30' : 'focus:shadow-[0_0_10px] focus:shadow-neon-blue/20'}`}
+                    className={`w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-neon-blue focus:outline-none resize-none form-input ${contentVisible ? 'focus:shadow-[0_0_15px] focus:shadow-neon-blue/30' : 'focus:shadow-[0_0_10px] focus:shadow-neon-blue/20'}`}
                     placeholder="Tell me about your project..."
                   />
                 </div>
                 
                 <button
                   type="submit"
-                  className={`w-full px-8 py-3 rounded-lg bg-neon-blue/10 border border-neon-blue text-neon-blue hover:bg-neon-blue hover:text-background transition-all duration-500 ${contentVisible ? 'neon-text-scroll active hover:animate-pulse-neon' : 'neon-text-scroll'}`}
+                  className={`w-full px-8 py-3 rounded-lg bg-neon-blue/10 border border-neon-blue text-neon-blue hover:bg-neon-blue hover:text-background button-hover ${contentVisible ? 'neon-text-scroll active hover:animate-pulse-neon' : 'neon-text-scroll'}`}
                 >
                   Send Message
                 </button>

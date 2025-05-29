@@ -51,24 +51,24 @@ const Blog: React.FC = () => {
                 <article
                   key={index}
                   ref={elementRef}
-                  className={`group neon-border rounded-lg p-6 bg-card/50 hover:bg-card/80 transition-all duration-700 cursor-pointer section-fade ${isVisible ? 'visible card-glow active' : 'card-glow'}`}
+                  className={`group neon-border rounded-lg p-6 bg-card/50 hover:bg-card/80 transition-all duration-700 cursor-pointer card-hover section-fade ${isVisible ? 'visible card-glow active' : 'card-glow'}`}
                   style={{ animationDelay: `${index * 200}ms` }}
                 >
                   <div className="mb-4">
-                    <div className="flex items-center justify-between text-sm text-muted-foreground mb-3">
+                    <div className="flex items-center justify-between text-sm text-muted-foreground mb-3 transition-all duration-300 group-hover:text-foreground">
                       <span>{post.date}</span>
                       <span>{post.readTime}</span>
                     </div>
                     <h3 className={`text-xl font-semibold mb-3 text-${post.color} transition-all duration-700 ${isVisible ? 'neon-text-scroll active neon-glow group-hover:neon-flicker' : 'neon-text-scroll neon-glow'}`}>
                       {post.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-muted-foreground leading-relaxed transition-all duration-300 group-hover:text-foreground">
                       {post.excerpt}
                     </p>
                   </div>
                   
                   <div className="pt-4 border-t border-border">
-                    <span className={`text-sm text-neon-blue hover:text-neon-purple transition-all duration-500 ${isVisible ? 'neon-text-scroll active' : 'neon-text-scroll'}`}>
+                    <span className={`text-sm text-neon-blue hover:text-neon-purple transition-all duration-500 ${isVisible ? 'neon-text-scroll active' : 'neon-text-scroll'} cursor-pointer`}>
                       Read more →
                     </span>
                   </div>
@@ -78,7 +78,7 @@ const Blog: React.FC = () => {
           </div>
 
           <div className="text-center mt-12">
-            <button className={`neon-border px-8 py-3 rounded-lg text-neon-blue hover:text-neon-purple transition-all duration-500 ${headerVisible ? 'neon-text-scroll active hover:animate-pulse-neon' : 'neon-text-scroll'}`}>
+            <button className={`neon-border px-8 py-3 rounded-lg text-neon-blue hover:text-neon-purple button-hover ${headerVisible ? 'neon-text-scroll active hover:animate-pulse-neon' : 'neon-text-scroll'}`}>
               View All Posts
             </button>
           </div>

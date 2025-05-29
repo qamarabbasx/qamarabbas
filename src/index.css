@@ -89,6 +89,7 @@
   
   .neon-glow:hover {
     text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+    transform: translateY(-2px);
   }
   
   .neon-border {
@@ -97,6 +98,7 @@
   
   .neon-border:hover {
     @apply border-neon-blue/60 shadow-[0_0_15px] shadow-neon-blue/30;
+    transform: translateY(-3px);
   }
   
   .neon-border.active {
@@ -145,6 +147,75 @@
     transform: translateY(-5px);
   }
 
+  .card-hover {
+    @apply transition-all duration-500 ease-out;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+      0 20px 40px rgba(0, 245, 255, 0.2),
+      0 0 30px rgba(0, 245, 255, 0.3);
+  }
+
+  .button-hover {
+    @apply transition-all duration-300 ease-out;
+    background: linear-gradient(45deg, transparent, rgba(0, 245, 255, 0.1));
+  }
+
+  .button-hover:hover {
+    background: linear-gradient(45deg, rgba(0, 245, 255, 0.1), rgba(191, 0, 255, 0.1));
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 245, 255, 0.3);
+  }
+
+  .tech-tag {
+    @apply transition-all duration-300;
+  }
+
+  .tech-tag:hover {
+    transform: scale(1.1);
+    background: linear-gradient(45deg, rgba(0, 245, 255, 0.2), rgba(191, 0, 255, 0.2));
+    box-shadow: 0 0 15px rgba(0, 245, 255, 0.4);
+  }
+
+  .nav-link {
+    @apply relative transition-all duration-300;
+  }
+
+  .nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #00f5ff, #bf00ff);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+
+  .nav-link:hover::before {
+    width: 100%;
+  }
+
+  .form-input {
+    @apply transition-all duration-300;
+  }
+
+  .form-input:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 245, 255, 0.2);
+  }
+
+  .floating-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .pulse-slow {
+    animation: pulse-slow 4s ease-in-out infinite;
+  }
+
   @keyframes glow-pulse {
     0%, 100% {
       text-shadow: 0 0 15px currentColor, 0 0 30px currentColor, 0 0 45px currentColor;
@@ -162,6 +233,33 @@
     50% {
       opacity: 0.8;
       text-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+    }
+  }
+
+  @keyframes pulse-neon {
+    0%, 100% {
+      box-shadow: 0 0 5px currentColor;
+    }
+    50% {
+      box-shadow: 0 0 20px currentColor, 0 0 30px currentColor;
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
     }
   }
 

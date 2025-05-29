@@ -52,14 +52,14 @@ const Projects: React.FC = () => {
                 <div
                   key={index}
                   ref={elementRef}
-                  className={`group neon-border rounded-lg p-6 bg-card/50 hover:bg-card/80 transition-all duration-700 transform hover:scale-105 section-fade ${isVisible ? 'visible card-glow active' : 'card-glow'}`}
+                  className={`group neon-border rounded-lg p-6 bg-card/50 hover:bg-card/80 transition-all duration-700 card-hover section-fade ${isVisible ? 'visible card-glow active' : 'card-glow'}`}
                   style={{ animationDelay: `${index * 200}ms` }}
                 >
                   <div className="mb-4">
                     <h3 className={`text-xl font-semibold mb-3 text-${project.color} transition-all duration-700 ${isVisible ? 'neon-text-scroll active neon-glow group-hover:neon-flicker' : 'neon-text-scroll neon-glow'}`}>
                       {project.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-muted-foreground leading-relaxed transition-all duration-300 group-hover:text-foreground">
                       {project.description}
                     </p>
                   </div>
@@ -68,7 +68,7 @@ const Projects: React.FC = () => {
                     <h4 className="text-sm font-medium mb-2 text-foreground">Key Features:</h4>
                     <ul className="text-sm text-muted-foreground space-y-1">
                       {project.highlights.map((highlight, i) => (
-                        <li key={i}>• {highlight}</li>
+                        <li key={i} className="transition-all duration-300 group-hover:text-foreground">• {highlight}</li>
                       ))}
                     </ul>
                   </div>
@@ -77,7 +77,7 @@ const Projects: React.FC = () => {
                     {project.tech.map((tech, i) => (
                       <span
                         key={i}
-                        className={`px-3 py-1 text-xs bg-secondary/50 rounded-full border border-border transition-all duration-500 ${isVisible ? 'neon-border active' : ''}`}
+                        className={`px-3 py-1 text-xs bg-secondary/50 rounded-full border border-border tech-tag ${isVisible ? 'neon-border active' : ''}`}
                       >
                         {tech}
                       </span>
