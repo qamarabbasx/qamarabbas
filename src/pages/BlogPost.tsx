@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Calendar, Clock, ArrowLeft, User } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft, User, ArrowRight } from 'lucide-react';
 import Navigation from '../components/Navigation';
 
 const BlogPost: React.FC = () => {
