@@ -1,7 +1,11 @@
 
 import React from 'react';
+import { useScrollTrigger } from '../hooks/useScrollTrigger';
 
 const Contact: React.FC = () => {
+  const { elementRef: headerRef, isVisible: headerVisible } = useScrollTrigger({ threshold: 0.3 });
+  const { elementRef: contentRef, isVisible: contentVisible } = useScrollTrigger({ threshold: 0.2 });
+
   const contactInfo = [
     {
       label: "Email",
@@ -33,9 +37,9 @@ const Contact: React.FC = () => {
     <section id="contact" className="min-h-screen py-20 bg-secondary/20">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="text-neon-pink animate-glow">Get In</span>{' '}
+          <div ref={headerRef} className={`text-center mb-16 section-fade ${headerVisible ? 'visible' : ''}`}>
+            <h2 className={`text-4xl md:text-5xl font-bold mb-6 transition-all duration-700 ${headerVisible ? 'neon-text-scroll active' : 'neon-text-scroll'}`}>
+              <span className={`text-neon-pink ${headerVisible ? 'scroll-glow active animate-glow' : 'scroll-glow'}`}>Get In</span>{' '}
               <span className="text-foreground">Touch</span>
             </h2>
             <p className="text-xl text-muted-foreground">
@@ -43,35 +47,41 @@ const Contact: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
+          <div ref={contentRef} className="grid md:grid-cols-2 gap-12">
             <div className="space-y-8">
-              <div className="animate-fade-in">
-                <h3 className="text-2xl font-semibold mb-6 text-neon-blue neon-glow">
+              <div className={`section-fade ${contentVisible ? 'visible' : ''}`}>
+                <h3 className={`text-2xl font-semibold mb-6 text-neon-blue transition-all duration-700 ${contentVisible ? 'neon-text-scroll active' : 'neon-text-scroll'}`}>
                   Contact Information
                 </h3>
                 <div className="space-y-6">
-                  {contactInfo.map((info, index) => (
-                    <div
-                      key={index}
-                      className="group flex items-center space-x-4 p-4 rounded-lg neon-border hover:bg-card/50 transition-all duration-300"
-                    >
-                      <div className={`w-3 h-3 rounded-full bg-${info.color} shadow-[0_0_10px] shadow-${info.color}/50`} />
-                      <div className="flex-1">
-                        <p className="text-sm text-muted-foreground">{info.label}</p>
-                        <a
-                          href={info.href}
-                          className={`text-${info.color} neon-glow hover:animate-glow transition-all duration-300`}
-                        >
-                          {info.value}
-                        </a>
+                  {contactInfo.map((info, index) => {
+                    const { elementRef, isVisible } = useScrollTrigger({ threshold: 0.5 });
+                    
+                    return (
+                      <div
+                        key={index}
+                        ref={elementRef}
+                        className={`group flex items-center space-x-4 p-4 rounded-lg neon-border hover:bg-card/50 transition-all duration-500 ${isVisible ? 'card-glow active' : 'card-glow'}`}
+                        style={{ animationDelay: `${index * 100}ms` }}
+                      >
+                        <div className={`w-3 h-3 rounded-full bg-${info.color} shadow-[0_0_10px] shadow-${info.color}/50 transition-all duration-500 ${isVisible ? 'animate-pulse' : ''}`} />
+                        <div className="flex-1">
+                          <p className="text-sm text-muted-foreground">{info.label}</p>
+                          <a
+                            href={info.href}
+                            className={`text-${info.color} transition-all duration-500 ${isVisible ? 'neon-text-scroll active hover:neon-flicker' : 'neon-text-scroll'}`}
+                          >
+                            {info.value}
+                          </a>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
 
-              <div className="animate-fade-in-up delay-300">
-                <h3 className="text-2xl font-semibold mb-6 text-neon-purple neon-glow">
+              <div className={`section-fade ${contentVisible ? 'visible' : ''} delay-300`}>
+                <h3 className={`text-2xl font-semibold mb-6 text-neon-purple transition-all duration-700 ${contentVisible ? 'neon-text-scroll active' : 'neon-text-scroll'}`}>
                   Let's Build Something Amazing
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
@@ -82,13 +92,13 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            <div className="animate-fade-in-up delay-500">
+            <div className={`section-fade ${contentVisible ? 'visible' : ''} delay-500`}>
               <form className="space-y-6">
                 <div>
                   <label className="block text-sm font-medium mb-2">Name</label>
                   <input
                     type="text"
-                    className="w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-neon-blue focus:outline-none focus:shadow-[0_0_10px] focus:shadow-neon-blue/20 transition-all duration-300"
+                    className={`w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-neon-blue focus:outline-none transition-all duration-500 ${contentVisible ? 'focus:shadow-[0_0_15px] focus:shadow-neon-blue/30' : 'focus:shadow-[0_0_10px] focus:shadow-neon-blue/20'}`}
                     placeholder="Your name"
                   />
                 </div>
@@ -97,7 +107,7 @@ const Contact: React.FC = () => {
                   <label className="block text-sm font-medium mb-2">Email</label>
                   <input
                     type="email"
-                    className="w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-neon-blue focus:outline-none focus:shadow-[0_0_10px] focus:shadow-neon-blue/20 transition-all duration-300"
+                    className={`w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-neon-blue focus:outline-none transition-all duration-500 ${contentVisible ? 'focus:shadow-[0_0_15px] focus:shadow-neon-blue/30' : 'focus:shadow-[0_0_10px] focus:shadow-neon-blue/20'}`}
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -106,14 +116,14 @@ const Contact: React.FC = () => {
                   <label className="block text-sm font-medium mb-2">Message</label>
                   <textarea
                     rows={5}
-                    className="w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-neon-blue focus:outline-none focus:shadow-[0_0_10px] focus:shadow-neon-blue/20 transition-all duration-300 resize-none"
+                    className={`w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-neon-blue focus:outline-none resize-none transition-all duration-500 ${contentVisible ? 'focus:shadow-[0_0_15px] focus:shadow-neon-blue/30' : 'focus:shadow-[0_0_10px] focus:shadow-neon-blue/20'}`}
                     placeholder="Tell me about your project..."
                   />
                 </div>
                 
                 <button
                   type="submit"
-                  className="w-full px-8 py-3 rounded-lg bg-neon-blue/10 border border-neon-blue text-neon-blue hover:bg-neon-blue hover:text-background transition-all duration-300 neon-glow hover:animate-pulse-neon"
+                  className={`w-full px-8 py-3 rounded-lg bg-neon-blue/10 border border-neon-blue text-neon-blue hover:bg-neon-blue hover:text-background transition-all duration-500 ${contentVisible ? 'neon-text-scroll active hover:animate-pulse-neon' : 'neon-text-scroll'}`}
                 >
                   Send Message
                 </button>

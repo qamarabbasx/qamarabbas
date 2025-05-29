@@ -84,7 +84,7 @@
 
 @layer components {
   .neon-glow {
-    @apply transition-all duration-300;
+    @apply transition-all duration-500;
   }
   
   .neon-glow:hover {
@@ -92,18 +92,80 @@
   }
   
   .neon-border {
-    @apply border border-neon-blue/50 shadow-[0_0_10px] shadow-neon-blue/20;
+    @apply border border-neon-blue/30 shadow-[0_0_5px] shadow-neon-blue/10 transition-all duration-500;
   }
   
   .neon-border:hover {
-    @apply shadow-[0_0_20px] shadow-neon-blue/40;
+    @apply border-neon-blue/60 shadow-[0_0_15px] shadow-neon-blue/30;
+  }
+  
+  .neon-border.active {
+    @apply border-neon-blue shadow-[0_0_25px] shadow-neon-blue/50;
+    animation: pulse-neon 2s ease-in-out infinite;
   }
   
   .section-fade {
-    @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+    @apply opacity-0 translate-y-12 transition-all duration-1000 ease-out;
   }
   
   .section-fade.visible {
     @apply opacity-100 translate-y-0;
+  }
+
+  .scroll-glow {
+    @apply transition-all duration-700 ease-out;
+    filter: brightness(0.8);
+  }
+
+  .scroll-glow.active {
+    filter: brightness(1.2);
+    text-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
+  }
+
+  .neon-text-scroll {
+    @apply transition-all duration-700;
+    text-shadow: none;
+  }
+
+  .neon-text-scroll.active {
+    text-shadow: 0 0 15px currentColor, 0 0 30px currentColor, 0 0 45px currentColor;
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+
+  .card-glow {
+    @apply transition-all duration-700;
+    box-shadow: 0 0 0 rgba(0, 245, 255, 0);
+  }
+
+  .card-glow.active {
+    box-shadow: 
+      0 0 20px rgba(0, 245, 255, 0.3),
+      0 0 40px rgba(0, 245, 255, 0.2),
+      0 0 60px rgba(0, 245, 255, 0.1);
+    transform: translateY(-5px);
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% {
+      text-shadow: 0 0 15px currentColor, 0 0 30px currentColor, 0 0 45px currentColor;
+    }
+    50% {
+      text-shadow: 0 0 25px currentColor, 0 0 50px currentColor, 0 0 75px currentColor;
+    }
+  }
+
+  @keyframes neon-flicker {
+    0%, 100% {
+      opacity: 1;
+      text-shadow: 0 0 15px currentColor, 0 0 30px currentColor;
+    }
+    50% {
+      opacity: 0.8;
+      text-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+    }
+  }
+
+  .neon-flicker {
+    animation: neon-flicker 0.15s infinite linear;
   }
 }

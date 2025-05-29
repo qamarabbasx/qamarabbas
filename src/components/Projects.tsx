@@ -1,7 +1,11 @@
 
 import React from 'react';
+import { useScrollTrigger } from '../hooks/useScrollTrigger';
 
 const Projects: React.FC = () => {
+  const { elementRef: headerRef, isVisible: headerVisible } = useScrollTrigger({ threshold: 0.3 });
+  const { elementRef: gridRef, isVisible: gridVisible } = useScrollTrigger({ threshold: 0.2 });
+
   const projects = [
     {
       title: "TaskJoy — Secure Service Contracting Platform",
@@ -30,9 +34,9 @@ const Projects: React.FC = () => {
     <section id="projects" className="min-h-screen py-20 bg-secondary/20">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="text-neon-purple animate-glow">Featured</span>{' '}
+          <div ref={headerRef} className={`text-center mb-16 section-fade ${headerVisible ? 'visible' : ''}`}>
+            <h2 className={`text-4xl md:text-5xl font-bold mb-6 transition-all duration-700 ${headerVisible ? 'neon-text-scroll active' : 'neon-text-scroll'}`}>
+              <span className={`text-neon-purple ${headerVisible ? 'scroll-glow active' : 'scroll-glow'}`}>Featured</span>{' '}
               <span className="text-foreground">Projects</span>
             </h2>
             <p className="text-xl text-muted-foreground">
@@ -40,43 +44,48 @@ const Projects: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <div
-                key={index}
-                className={`group neon-border rounded-lg p-6 bg-card/50 hover:bg-card/80 transition-all duration-500 transform hover:scale-105 animate-fade-in-up`}
-                style={{ animationDelay: `${index * 200}ms` }}
-              >
-                <div className="mb-4">
-                  <h3 className={`text-xl font-semibold mb-3 text-${project.color} neon-glow group-hover:animate-glow`}>
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
+          <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => {
+              const { elementRef, isVisible } = useScrollTrigger({ threshold: 0.3 });
+              
+              return (
+                <div
+                  key={index}
+                  ref={elementRef}
+                  className={`group neon-border rounded-lg p-6 bg-card/50 hover:bg-card/80 transition-all duration-700 transform hover:scale-105 section-fade ${isVisible ? 'visible card-glow active' : 'card-glow'}`}
+                  style={{ animationDelay: `${index * 200}ms` }}
+                >
+                  <div className="mb-4">
+                    <h3 className={`text-xl font-semibold mb-3 text-${project.color} transition-all duration-700 ${isVisible ? 'neon-text-scroll active neon-glow group-hover:neon-flicker' : 'neon-text-scroll neon-glow'}`}>
+                      {project.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {project.description}
+                    </p>
+                  </div>
 
-                <div className="mb-4">
-                  <h4 className="text-sm font-medium mb-2 text-foreground">Key Features:</h4>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    {project.highlights.map((highlight, i) => (
-                      <li key={i}>• {highlight}</li>
+                  <div className="mb-4">
+                    <h4 className="text-sm font-medium mb-2 text-foreground">Key Features:</h4>
+                    <ul className="text-sm text-muted-foreground space-y-1">
+                      {project.highlights.map((highlight, i) => (
+                        <li key={i}>• {highlight}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((tech, i) => (
+                      <span
+                        key={i}
+                        className={`px-3 py-1 text-xs bg-secondary/50 rounded-full border border-border transition-all duration-500 ${isVisible ? 'neon-border active' : ''}`}
+                      >
+                        {tech}
+                      </span>
                     ))}
-                  </ul>
+                  </div>
                 </div>
-
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1 text-xs bg-secondary/50 rounded-full border border-border"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
