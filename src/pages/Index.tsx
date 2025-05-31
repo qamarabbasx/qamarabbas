@@ -30,6 +30,8 @@ const Index = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const currentYear = new Date().getFullYear();
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <NeonScrollBars />
@@ -42,11 +44,52 @@ const Index = () => {
         <Contact />
       </main>
 
-      <footer className="py-8 border-t border-border bg-background/80 backdrop-blur-md">
-        <div className="container mx-auto px-6 text-center">
-          <p className="text-muted-foreground">
-            © 2024 Qamar Abbas. Built with React & Tailwind CSS.
-          </p>
+      <footer className="py-12 border-t border-border bg-background/95 backdrop-blur-md">
+        <div className="container mx-auto px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+              {/* Left side - Name and tagline */}
+              <div className="text-center md:text-left">
+                <h3 className="text-xl font-bold text-foreground mb-2">Qamar Abbas</h3>
+                <p className="text-muted-foreground text-sm">
+                  Full-Stack Developer • Problem Solver • Tech Enthusiast
+                </p>
+              </div>
+              
+              {/* Center - Tech stack */}
+              <div className="flex flex-wrap justify-center gap-3 text-xs">
+                <span className="px-3 py-1 bg-blue-500/10 text-blue-500 rounded-full border border-blue-500/20">
+                  React
+                </span>
+                <span className="px-3 py-1 bg-green-500/10 text-green-500 rounded-full border border-green-500/20">
+                  Node.js
+                </span>
+                <span className="px-3 py-1 bg-purple-500/10 text-purple-500 rounded-full border border-purple-500/20">
+                  TypeScript
+                </span>
+                <span className="px-3 py-1 bg-orange-500/10 text-orange-500 rounded-full border border-orange-500/20">
+                  AWS
+                </span>
+              </div>
+              
+              {/* Right side - Copyright */}
+              <div className="text-center md:text-right">
+                <p className="text-muted-foreground text-sm">
+                  © {currentYear} All rights reserved
+                </p>
+                <p className="text-xs text-muted-foreground/70 mt-1">
+                  Crafted with React & Tailwind CSS
+                </p>
+              </div>
+            </div>
+            
+            {/* Bottom section */}
+            <div className="mt-8 pt-6 border-t border-border/50 text-center">
+              <p className="text-xs text-muted-foreground/60">
+                "Code is poetry written in logic" - Building digital experiences that matter
+              </p>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
