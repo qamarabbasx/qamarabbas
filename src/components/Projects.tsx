@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useScrollTrigger } from '../hooks/useScrollTrigger';
 import { ExternalLink, Github, Eye } from 'lucide-react';
@@ -38,6 +39,14 @@ const Projects: React.FC = () => {
   };
 
   const projects = [
+    {
+      title: "CryptoDailySplit — Daily Crypto Investment Platform",
+      description: "Built with Lovable AI, a modern platform for daily cryptocurrency investment tracking and portfolio management. Features real-time crypto data, investment splitting algorithms, and comprehensive portfolio analytics.",
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop&crop=center",
+      tech: ["React", "Vite", "Tailwind CSS", "TypeScript", "Lovable"],
+      category: "SaaS",
+      url: "https://cryptodailysplit.com/"
+    },
     {
       title: "TaskPay — Secure Service Contracting Platform",
       description: "Built a scalable platform using Next.js and Google Cloud, supporting thousands of real-time transactions weekly. Integrated ACH, Wire, RTP payments via IBANERA, NMI, and PayPal, increasing success rates by 30%.",
