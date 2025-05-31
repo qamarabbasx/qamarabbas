@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import { useScrollTrigger } from '../hooks/useScrollTrigger';
 import { ExternalLink, Github, Eye } from 'lucide-react';
@@ -41,7 +43,7 @@ const Projects: React.FC = () => {
     {
       title: "CryptoDailySplit — Daily Crypto Investment Platform",
       description: "Built with Lovable AI, a modern platform for daily cryptocurrency investment tracking and portfolio management. Features real-time crypto data, investment splitting algorithms, and comprehensive portfolio analytics.",
-      image: `https://api.screenshotone.com/take?access_key=7nBBKA_ZAa0fag&url=${encodeURIComponent('https://cryptodailysplit.com/')}&viewport_width=1200&viewport_height=800&device_scale_factor=1&format=jpg&image_quality=80&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=false&delay=3&timeout=60`,
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop&crop=center",
       tech: ["React", "Vite", "Tailwind CSS", "TypeScript", "Lovable"],
       category: "SaaS",
       url: "https://cryptodailysplit.com/"
@@ -49,7 +51,7 @@ const Projects: React.FC = () => {
     {
       title: "TaskPay — Secure Service Contracting Platform",
       description: "Built a scalable platform using Next.js and Google Cloud, supporting thousands of real-time transactions weekly. Integrated ACH, Wire, RTP payments via IBANERA, NMI, and PayPal, increasing success rates by 30%.",
-      image: `https://api.screenshotone.com/take?access_key=7nBBKA_ZAa0fag&url=${encodeURIComponent('https://taskpay.com')}&viewport_width=1200&viewport_height=800&device_scale_factor=1&format=jpg&image_quality=80&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=false&delay=3&timeout=60`,
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop&crop=center",
       tech: ["Nest.js", "Next.js", "GCP", "Fireblocks", "NMI", "PayPal", "PostgreSQL"],
       category: "Full Stack",
       url: "https://taskpay.com"
@@ -57,7 +59,7 @@ const Projects: React.FC = () => {
     {
       title: "Clone Hub — AI-Powered Digital Engagement Platform",
       description: "Developed a SaaS product with Next.js and PostgreSQL, powering over 10,000 AI clones for 24/7 audience engagement. Boosted user retention by 40% with monetization via subscriptions and pay-per-use.",
-      image: `https://api.screenshotone.com/take?access_key=7nBBKA_ZAa0fag&url=${encodeURIComponent('https://clonehub.com')}&viewport_width=1200&viewport_height=800&device_scale_factor=1&format=jpg&image_quality=80&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=false&delay=3&timeout=60`,
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop&crop=center",
       tech: ["Nest.js", "Next.js", "PostgreSQL", "AI/ML"],
       category: "SaaS",
       url: "https://clonehub.com"
@@ -65,7 +67,7 @@ const Projects: React.FC = () => {
     {
       title: "AAA Protect — Comprehensive Protection Platform",
       description: "Engineered a full-service platform using Next.js, Nest.js, and MongoDB, serving 5,000+ commercial drivers. Integrated Stripe for secure payment handling, increasing transaction success by 30%.",
-      image: `https://api.screenshotone.com/take?access_key=7nBBKA_ZAa0fag&url=${encodeURIComponent('https://aaaprotect.com/')}&viewport_width=1200&viewport_height=800&device_scale_factor=1&format=jpg&image_quality=80&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=false&delay=3&timeout=60`,
+      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop&crop=center",
       tech: ["Nest.js", "Next.js", "MongoDB", "Stripe"],
       category: "Enterprise",
       url: "https://aaaprotect.com/"
@@ -80,7 +82,7 @@ const Projects: React.FC = () => {
     {
       title: "Custom Shopify Apps",
       description: "Led development of custom Shopify apps using Gadget.dev platform, enabling seamless e-commerce integrations and increasing merchant adoption by 40%.",
-      image: `https://api.screenshotone.com/take?access_key=7nBBKA_ZAa0fag&url=${encodeURIComponent('https://carecart.io/')}&viewport_width=1200&viewport_height=800&device_scale_factor=1&format=jpg&image_quality=80&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=false&delay=3&timeout=60`,
+      image: "https://images.unsplash.com/photo-1556742111-a301076d9d18?w=600&h=400&fit=crop&crop=center",
       tech: ["Node.js", "Gadget.dev", "Shopify API", "Express"],
       category: "E-commerce",
       url: "https://carecart.io/"
@@ -233,3 +235,4 @@ const Projects: React.FC = () => {
 };
 
 export default Projects;
+
