@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { useScrollTrigger } from '../hooks/useScrollTrigger';
 import { ExternalLink, Github, Eye } from 'lucide-react';
@@ -83,7 +84,8 @@ const Projects: React.FC = () => {
       description: "Led development of custom Shopify apps using Gadget.dev platform, enabling seamless e-commerce integrations and increasing merchant adoption by 40%.",
       image: "https://images.unsplash.com/photo-1556742111-a301076d9d18?w=600&h=400&fit=crop&crop=center",
       tech: ["Node.js", "Gadget.dev", "Shopify API", "Express"],
-      category: "E-commerce"
+      category: "E-commerce",
+      url: "https://carecart.io/"
     }
   ];
 
@@ -233,3 +235,4 @@ const Projects: React.FC = () => {
 };
 
 export default Projects;
+
