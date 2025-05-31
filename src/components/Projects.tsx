@@ -41,7 +41,7 @@ const Projects: React.FC = () => {
     {
       title: "TaskPay — Secure Service Contracting Platform",
       description: "Built a scalable platform using Next.js and Google Cloud, supporting thousands of real-time transactions weekly. Integrated ACH, Wire, RTP payments via IBANERA, NMI, and PayPal, increasing success rates by 30%.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop&crop=center",
       tech: ["Nest.js", "Next.js", "GCP", "Fireblocks", "NMI", "PayPal", "PostgreSQL"],
       category: "Full Stack",
       url: "https://taskpay.com"
@@ -49,7 +49,7 @@ const Projects: React.FC = () => {
     {
       title: "Clone Hub — AI-Powered Digital Engagement Platform",
       description: "Developed a SaaS product with Next.js and PostgreSQL, powering over 10,000 AI clones for 24/7 audience engagement. Boosted user retention by 40% with monetization via subscriptions and pay-per-use.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop&crop=center",
       tech: ["Nest.js", "Next.js", "PostgreSQL", "AI/ML"],
       category: "SaaS",
       url: "https://clonehub.com"
@@ -57,7 +57,7 @@ const Projects: React.FC = () => {
     {
       title: "AAA Protect — Comprehensive Protection Platform",
       description: "Engineered a full-service platform using Next.js, Nest.js, and MongoDB, serving 5,000+ commercial drivers. Integrated Stripe for secure payment handling, increasing transaction success by 30%.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop&crop=center",
       tech: ["Nest.js", "Next.js", "MongoDB", "Stripe"],
       category: "Enterprise",
       url: "https://aaaprotect.com/"
@@ -65,14 +65,14 @@ const Projects: React.FC = () => {
     {
       title: "Warehouse Management System",
       description: "Developed a centralized warehouse management system integrated with Amazon, Shopify, and Walmart, reducing order errors by 40% and streamlining inventory workflows.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop&crop=center",
       tech: ["Node.js", "Express", "React", "MySQL", "MongoDB"],
       category: "Enterprise"
     },
     {
       title: "Custom Shopify Apps",
       description: "Led development of custom Shopify apps using Gadget.dev platform, enabling seamless e-commerce integrations and increasing merchant adoption by 40%.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1556742111-a301076d9d18?w=600&h=400&fit=crop&crop=center",
       tech: ["Node.js", "Gadget.dev", "Shopify API", "Express"],
       category: "E-commerce"
     }
