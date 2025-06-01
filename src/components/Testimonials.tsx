@@ -17,21 +17,21 @@ const Testimonials = () => {
     },
     {
       id: 2,
-      name: "Sarah Johnson",
-      role: "CTO",
-      company: "StartupCorp",
-      image: "/placeholder.svg",
-      text: "Working with Qamar was a game-changer for our project. His technical expertise in React and Node.js helped us build a scalable platform.",
-      linkedinUrl: "https://linkedin.com/in/sarahjohnson"
+      name: "Muhammad Arsalan",
+      role: "Team Lead",
+      company: "Vaival Technologies",
+      image: "https://media.licdn.com/dms/image/v2/D4D35AQHa3QKbTAjoLg/profile-framedphoto-shrink_200_200/B4DZV_BDkeHwAc-/0/1741592738398?e=1749409200&v=beta&t=y1f1-5h06NzYRZjGQ4b9UTrLlIOa9Sfh86rvw-JZohQ",
+      text: "Qamar is not only technically proficient but also a great problem solver who approaches issues with a strategic mindset. His attention to detail, ability to write clean and scalable code, and commitment to delivering high-quality solutions make him an invaluable asset to any team.",
+      linkedinUrl: "https://www.linkedin.com/in/muhammad-arsalan-5334a2164/"
     },
     {
       id: 3,
-      name: "Michael Chen",
+      name: "Nimra Haider",
       role: "Lead Developer",
-      company: "Digital Agency",
-      image: "/placeholder.svg",
-      text: "Qamar's code quality is exceptional. He writes clean, maintainable code and has a deep understanding of modern web technologies.",
-      linkedinUrl: "https://linkedin.com/in/michaelchen"
+      company: "Black Lion Innovations Group",
+      image: "https://media.licdn.com/dms/image/v2/D4D03AQFEdMrKtMXeRA/profile-displayphoto-shrink_200_200/B4DZWO3trtG8Ag-/0/1741858725821?e=1754524800&v=beta&t=Y_XBu7yGU3BYyQQ39owK7E0XfrWi2iEsRdUe36okBMA",
+      text: "Qamar consistently impressed me with his strong technical skills, particularly in areas such as database management and server-side scripting. His attention to detail and problem-solving abilities were evident in every task he undertook. I wholeheartedly recommend him for any backend development role.",
+      linkedinUrl: "https://www.linkedin.com/in/nimrahaider320/"
     }
   ];
 
