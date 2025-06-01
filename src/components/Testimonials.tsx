@@ -12,7 +12,7 @@ const Testimonials = () => {
       role: "Senior Project Manager",
       company: "Tech Solutions Inc.",
       image: "/placeholder.svg",
-      text: "Qamar is an exceptional full-stack developer with outstanding problem-solving skills. His ability to deliver high-quality solutions on time is remarkable.",
+      text: "Qamar's outstanding Node.js capabilities, combined with his punctuality, professionalism, and leadership qualities, make him an invaluable asset to any development team. I highly recommend him for any project requiring top-tier Node.js expertise and effective team leadership.",
       linkedinUrl: "https://linkedin.com/in/johnsmith"
     },
     {
