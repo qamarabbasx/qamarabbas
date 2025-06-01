@@ -44,6 +44,24 @@ const Index = () => {
         <Contact />
       </main>
 
+      {/* Marquee Section */}
+      <div className="marquee-section py-8 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-pink-600/10 border-y border-border/50 overflow-hidden">
+        <div className="marquee-container">
+          <div className="marquee animate-scroll-right whitespace-nowrap mb-4">
+            <span className="px-4 text-lg font-medium text-foreground">Senior Full-Stack Developer from Pakistan *</span>
+            <span className="px-4 text-lg font-medium text-foreground">Senior Full-Stack Developer from Pakistan *</span>
+            <span className="px-4 text-lg font-medium text-foreground">Senior Full-Stack Developer from Pakistan *</span>
+            <span className="px-4 text-lg font-medium text-foreground">Senior Full-Stack Developer from Pakistan *</span>
+          </div>
+          <div className="marquee animate-scroll-left whitespace-nowrap">
+            <span className="px-4 text-lg font-medium text-muted-foreground">I'm Open for new projects * Let's Work Together *</span>
+            <span className="px-4 text-lg font-medium text-muted-foreground">I'm Open for new projects * Let's Work Together *</span>
+            <span className="px-4 text-lg font-medium text-muted-foreground">I'm Open for new projects * Let's Work Together *</span>
+            <span className="px-4 text-lg font-medium text-muted-foreground">I'm Open for new projects * Let's Work Together *</span>
+          </div>
+        </div>
+      </div>
+
       <footer className="py-12 border-t border-border bg-background/95 backdrop-blur-md">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">

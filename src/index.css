@@ -159,6 +159,25 @@
   .fade-in.visible {
     @apply opacity-100 translate-y-0;
   }
+
+  /* Marquee animations */
+  .marquee-section {
+    position: relative;
+  }
+
+  .marquee {
+    display: inline-block;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  .animate-scroll-right {
+    animation: scroll-right 30s linear infinite;
+  }
+
+  .animate-scroll-left {
+    animation: scroll-left 25s linear infinite;
+  }
 }
 
 /* Custom animations */
@@ -210,6 +229,24 @@
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
   }
 }
 
