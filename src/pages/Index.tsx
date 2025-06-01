@@ -4,6 +4,7 @@ import Navigation from '../components/Navigation';
 import About from '../components/About';
 import Projects from '../components/Projects';
 import Blog from '../components/Blog';
+import Testimonials from '../components/Testimonials';
 import Contact from '../components/Contact';
 import NeonScrollBars from '../components/NeonScrollBars';
 
@@ -12,7 +13,7 @@ const Index = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['about', 'projects', 'blog', 'contact'];
+      const sections = ['about', 'projects', 'blog', 'testimonials', 'contact'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -41,6 +42,7 @@ const Index = () => {
         <About />
         <Projects />
         <Blog />
+        <Testimonials />
         <Contact />
       </main>
 
