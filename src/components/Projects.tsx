@@ -1,5 +1,4 @@
 
-
 import React from 'react';
 import { useScrollTrigger } from '../hooks/useScrollTrigger';
 import { ExternalLink, Github, Eye } from 'lucide-react';
@@ -12,34 +11,36 @@ import {
 } from './ui/dialog';
 
 const Projects: React.FC = () => {
-  const { elementRef: headerRef, isVisible: headerVisible } = useScrollTrigger({ threshold: 0.3 });
+  const { elementRef: headerRef, isVisible: headerVisible } = useScrollTrigger({ 
+    threshold: 0.2,
+    rootMargin: '-50px'
+  });
   const { toast } = useToast();
   const [selectedProject, setSelectedProject] = React.useState<any>(null);
   const [isModalOpen, setIsModalOpen] = React.useState(false);
 
-  const handleGithubClick = () => {
+  const handleGithubClick = React.useCallback(() => {
     toast({
       title: "Contact Developer",
       description: "Please contact me to see the source code for this project.",
     });
     
-    // Redirect to contact section
     setTimeout(() => {
       const contactElement = document.getElementById('contact');
       if (contactElement) {
         contactElement.scrollIntoView({ behavior: 'smooth' });
       }
     }, 1000);
-  };
+  }, [toast]);
 
-  const handlePreviewClick = (project: any) => {
+  const handlePreviewClick = React.useCallback((project: any) => {
     if (project.url) {
       setSelectedProject(project);
       setIsModalOpen(true);
     }
-  };
+  }, []);
 
-  const projects = [
+  const projects = React.useMemo(() => [
     {
       title: "CryptoDailySplit — Daily Crypto Investment Platform",
       description: "Built with Lovable AI, a modern platform for daily cryptocurrency investment tracking and portfolio management. Features real-time crypto data, investment splitting algorithms, and comprehensive portfolio analytics.",
@@ -87,23 +88,36 @@ const Projects: React.FC = () => {
       category: "E-commerce",
       url: "https://carecart.io/"
     }
-  ];
+  ], []);
 
-  const categories = ["All", "Full Stack", "SaaS", "Enterprise", "E-commerce"];
+  const categories = React.useMemo(() => ["All", "Full Stack", "SaaS", "Enterprise", "E-commerce"], []);
   const [activeCategory, setActiveCategory] = React.useState("All");
 
-  // Create individual scroll triggers for each project
-  const projectRefs = projects.map(() => useScrollTrigger({ threshold: 0.3 }));
+  // Create stable scroll triggers for each project
+  const projectScrollTriggers = projects.map((_, index) => 
+    useScrollTrigger({ 
+      threshold: 0.1,
+      rootMargin: '-100px'
+    })
+  );
 
-  const filteredProjects = activeCategory === "All" 
-    ? projects 
-    : projects.filter(project => project.category === activeCategory);
+  const filteredProjects = React.useMemo(() => 
+    activeCategory === "All" 
+      ? projects 
+      : projects.filter(project => project.category === activeCategory),
+    [activeCategory, projects]
+  );
 
   return (
     <section id="projects" className="min-h-screen py-20 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
-          <div ref={headerRef} className={`text-center mb-16 transition-all duration-1000 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div 
+            ref={headerRef} 
+            className={`text-center mb-16 transition-all duration-700 ease-out ${
+              headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
             <span className="text-blue-500 font-medium text-lg">- My Works</span>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mt-4 mb-6">
               Featured Projects
@@ -133,14 +147,18 @@ const Projects: React.FC = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project, index) => {
               const originalIndex = projects.findIndex(p => p.title === project.title);
-              const { elementRef, isVisible } = projectRefs[originalIndex];
+              const { elementRef, isVisible } = projectScrollTriggers[originalIndex];
               
               return (
                 <div
-                  key={index}
+                  key={project.title}
                   ref={elementRef}
-                  className={`group bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} hover:-translate-y-2`}
-                  style={{ animationDelay: `${index * 200}ms` }}
+                  className={`group bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg transition-all duration-500 ease-out transform ${
+                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                  } hover:shadow-2xl hover:-translate-y-2`}
+                  style={{ 
+                    transitionDelay: isVisible ? `${index * 100}ms` : '0ms'
+                  }}
                 >
                   {/* Project Image */}
                   <div className="relative h-64 overflow-hidden">
@@ -235,4 +253,3 @@ const Projects: React.FC = () => {
 };
 
 export default Projects;
-
