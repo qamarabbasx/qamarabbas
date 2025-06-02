@@ -78,17 +78,17 @@ const Index = () => {
               
               {/* Center - Tech stack */}
               <div className="flex flex-wrap justify-center gap-3 text-xs">
-                <span className="px-3 py-1 bg-blue-500/10 text-blue-500 rounded-full border border-blue-500/20">
-                  React
-                </span>
                 <span className="px-3 py-1 bg-green-500/10 text-green-500 rounded-full border border-green-500/20">
                   Node.js
                 </span>
+                <span className="px-3 py-1 bg-blue-500/10 text-blue-500 rounded-full border border-blue-500/20">
+                  Nest.js
+                </span>
                 <span className="px-3 py-1 bg-purple-500/10 text-purple-500 rounded-full border border-purple-500/20">
-                  TypeScript
+                  React
                 </span>
                 <span className="px-3 py-1 bg-orange-500/10 text-orange-500 rounded-full border border-orange-500/20">
-                  AWS
+                  GCP
                 </span>
               </div>
               
@@ -98,7 +98,7 @@ const Index = () => {
                   © {currentYear} All rights reserved
                 </p>
                 <p className="text-xs text-muted-foreground/70 mt-1">
-                  Crafted with React & Tailwind CSS
+                  Crafted with ❤️
                 </p>
               </div>
             </div>
