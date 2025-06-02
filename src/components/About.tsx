@@ -43,14 +43,14 @@ const About: React.FC = () => {
   const typewriterWords = ["Software Engineer", "Web Designer", "Freelancer", "Backend Developer", "Full Stack Developer"];
 
   return (
-    <section id="about" className="min-h-screen flex items-center justify-center py-20 bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-6">
+    <section id="about" className="min-h-screen flex items-center justify-center py-16 sm:py-20 bg-white dark:bg-gray-900">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Left Side - Image */}
-            <div ref={titleRef} className={`relative transition-all duration-1000 ${titleVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+            <div ref={titleRef} className={`relative transition-all duration-1000 order-1 lg:order-1 ${titleVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
               <div className="relative">
-                <div className="w-96 h-96 mx-auto rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100 dark:from-gray-800 dark:to-gray-700 p-2">
+                <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 mx-auto rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100 dark:from-gray-800 dark:to-gray-700 p-2">
                   <div className="w-full h-full rounded-full overflow-hidden shadow-2xl">
                     <img 
                       src="/lovable-uploads/c0614d71-0e04-4882-a4d7-0c1ebd835e7f.png" 
@@ -60,11 +60,11 @@ const About: React.FC = () => {
                   </div>
                 </div>
                 {/* Typewriter effect below image */}
-                <div className="text-center mt-8">
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                <div className="text-center mt-6 sm:mt-8">
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">
                     A Passionate
                   </h3>
-                  <div className="text-xl">
+                  <div className="text-lg sm:text-xl">
                     <Typewriter 
                       words={typewriterWords}
                       delay={100}
@@ -76,17 +76,17 @@ const About: React.FC = () => {
             </div>
 
             {/* Right Side - Content */}
-            <div ref={contentRef} className={`transition-all duration-1000 delay-300 ${contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-              <div className="space-y-8">
+            <div ref={contentRef} className={`transition-all duration-1000 delay-300 order-2 lg:order-2 ${contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+              <div className="space-y-6 sm:space-y-8">
                 <div>
-                  <span className="text-blue-500 font-medium text-lg">- Nice to meet you!</span>
-                  <h1 className="text-5xl font-bold text-gray-900 dark:text-white mt-4 mb-6">
+                  <span className="text-blue-500 font-medium text-base sm:text-lg">- Nice to meet you!</span>
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mt-3 sm:mt-4 mb-4 sm:mb-6">
                     Qamar Abbas
                   </h1>
-                  <h2 className="text-2xl text-gray-600 dark:text-gray-300 mb-8">
+                  <h2 className="text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-6 sm:mb-8">
                     Backend-focused Full Stack Developer
                   </h2>
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-base sm:text-lg">
                     Backend-focused Full-Stack Developer with 4+ years of experience in the MERN stack, 
                     specializing in backend architecture and scalable API development. Proficient in building 
                     robust server-side logic, integrating modern frontend interfaces, and delivering 
@@ -95,15 +95,15 @@ const About: React.FC = () => {
                 </div>
 
                 {/* Personal Info Grid */}
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   {personalInfo.map((info, index) => (
                     <div key={index} className="flex items-center space-x-3">
-                      <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+                      <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
                         <info.icon className="w-4 h-4 text-blue-500" />
                       </div>
-                      <div>
+                      <div className="min-w-0 flex-1">
                         <span className="text-sm text-gray-500 dark:text-gray-400 block">{info.label}</span>
-                        <span className="font-medium text-gray-800 dark:text-white">{info.value}</span>
+                        <span className="font-medium text-gray-800 dark:text-white text-sm sm:text-base break-all">{info.value}</span>
                       </div>
                     </div>
                   ))}
@@ -129,7 +129,7 @@ const About: React.FC = () => {
                   </a>
                 </div>
 
-                <button className="inline-flex items-center space-x-3 bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-full transition-colors duration-300">
+                <button className="inline-flex items-center space-x-3 bg-blue-500 hover:bg-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full transition-colors duration-300">
                   <Download className="w-5 h-5" />
                   <span className="font-medium">Download CV</span>
                 </button>
@@ -138,36 +138,36 @@ const About: React.FC = () => {
           </div>
 
           {/* Work Experience Section */}
-          <div className="mt-20">
-            <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Work Experience</h3>
+          <div className="mt-16 sm:mt-20">
+            <div className="text-center mb-8 sm:mb-12">
+              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4">Work Experience</h3>
               <p className="text-gray-600 dark:text-gray-300">Professional journey</p>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
               {workExperience.map((job, index) => (
-                <div key={index} className="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl">
-                  <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{job.position}</h4>
-                  <h5 className="text-lg font-semibold text-blue-500 mb-2">{job.company}</h5>
-                  <p className="text-gray-600 dark:text-gray-300 mb-1">{job.duration}</p>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm">{job.location}</p>
+                <div key={index} className="bg-gray-50 dark:bg-gray-800 p-4 sm:p-6 rounded-2xl">
+                  <h4 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">{job.position}</h4>
+                  <h5 className="text-base sm:text-lg font-semibold text-blue-500 mb-2">{job.company}</h5>
+                  <p className="text-gray-600 dark:text-gray-300 mb-1 text-sm sm:text-base">{job.duration}</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">{job.location}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Skills Section */}
-          <div ref={skillsRef} className={`mt-20 transition-all duration-1000 delay-600 ${skillsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Technical Skills</h3>
+          <div ref={skillsRef} className={`mt-16 sm:mt-20 transition-all duration-1000 delay-600 ${skillsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="text-center mb-8 sm:mb-12">
+              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4">Technical Skills</h3>
               <p className="text-gray-600 dark:text-gray-300">Core competencies</p>
             </div>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
               {skills.map((skill, index) => (
                 <div key={index} className="text-center">
-                  <div className="relative w-32 h-32 mx-auto mb-4">
-                    <svg className="w-32 h-32 transform -rotate-90" viewBox="0 0 100 100">
+                  <div className="relative w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-4">
+                    <svg className="w-24 h-24 sm:w-32 sm:h-32 transform -rotate-90" viewBox="0 0 100 100">
                       <circle
                         cx="50"
                         cy="50"
@@ -191,25 +191,25 @@ const About: React.FC = () => {
                       />
                     </svg>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-2xl font-bold text-gray-900 dark:text-white">{skill.percentage}%</span>
+                      <span className="text-lg sm:text-2xl font-bold text-gray-900 dark:text-white">{skill.percentage}%</span>
                     </div>
                   </div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">{skill.name}</h4>
+                  <h4 className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">{skill.name}</h4>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Education Section */}
-          <div className="mt-20">
-            <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Education</h3>
+          <div className="mt-16 sm:mt-20">
+            <div className="text-center mb-8 sm:mb-12">
+              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4">Education</h3>
             </div>
             
-            <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl text-center">
-              <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">BS in Software Engineering</h4>
-              <h5 className="text-lg font-semibold text-blue-500 mb-2">University of Sargodha</h5>
-              <p className="text-gray-600 dark:text-gray-300">Aug 2015 – June 2019</p>
+            <div className="bg-gray-50 dark:bg-gray-800 p-6 sm:p-8 rounded-2xl text-center">
+              <h4 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">BS in Software Engineering</h4>
+              <h5 className="text-base sm:text-lg font-semibold text-blue-500 mb-2">University of Sargodha</h5>
+              <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">Aug 2015 – June 2019</p>
             </div>
           </div>
         </div>
