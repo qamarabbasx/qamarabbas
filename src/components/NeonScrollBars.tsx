@@ -38,21 +38,13 @@ const NeonScrollBars: React.FC = () => {
         </div>
       </div>
 
-      {/* Pulsing Corner Effects */}
+      {/* Pulsing Corner Effects - Top corners only */}
       <div className="fixed top-4 left-4 w-8 h-8 z-40 pointer-events-none">
         <div className="w-full h-full border-l-2 border-t-2 border-neon-blue animate-pulse-neon opacity-80" />
       </div>
       
       <div className="fixed top-4 right-4 w-8 h-8 z-40 pointer-events-none">
         <div className="w-full h-full border-r-2 border-t-2 border-neon-pink animate-pulse-neon opacity-80" />
-      </div>
-      
-      <div className="fixed bottom-4 left-4 w-8 h-8 z-40 pointer-events-none">
-        <div className="w-full h-full border-l-2 border-b-2 border-neon-green animate-pulse-neon opacity-80" />
-      </div>
-      
-      <div className="fixed bottom-4 right-4 w-8 h-8 z-40 pointer-events-none">
-        <div className="w-full h-full border-r-2 border-b-2 border-neon-purple animate-pulse-neon opacity-80" />
       </div>
     </>
   );
