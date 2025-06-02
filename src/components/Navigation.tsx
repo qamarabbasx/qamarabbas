@@ -31,22 +31,22 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, setActiveSection
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 w-full">
-        <div className="container mx-auto px-4 sm:px-6 py-4">
-          <div className="flex items-center justify-between w-full">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 lg:h-20">
             <div 
-              className="text-xl sm:text-2xl font-bold cursor-pointer text-gray-900 dark:text-white hover:text-blue-500 transition-colors duration-300 flex-shrink-0"
+              className="text-lg sm:text-xl lg:text-2xl font-bold cursor-pointer text-gray-900 dark:text-white hover:text-blue-500 transition-colors duration-300"
               onClick={() => scrollToSection('about')}
             >
               Qamar<span className="text-blue-500">.</span>
             </div>
             
-            <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
+            <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`relative px-3 py-2 text-sm font-medium transition-colors duration-300 whitespace-nowrap ${
+                  className={`relative px-3 py-2 text-sm lg:text-base font-medium transition-colors duration-300 ${
                     activeSection === item.id
                       ? 'text-blue-500'
                       : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
@@ -60,27 +60,27 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, setActiveSection
               ))}
             </div>
 
-            <div className="flex items-center space-x-2 sm:space-x-4 flex-shrink-0">
+            <div className="flex items-center space-x-2 lg:space-x-3">
               <button
                 onClick={toggleTheme}
-                className="p-2 sm:p-3 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
+                className="p-2 lg:p-2.5 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
               >
                 {theme === 'dark' ? (
-                  <Sun className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-300" />
+                  <Sun className="w-4 h-4 lg:w-5 lg:h-5 text-gray-600 dark:text-gray-300" />
                 ) : (
-                  <Moon className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-300" />
+                  <Moon className="w-4 h-4 lg:w-5 lg:h-5 text-gray-600 dark:text-gray-300" />
                 )}
               </button>
 
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="md:hidden p-2 sm:p-3 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
+                className="md:hidden p-2 lg:p-2.5 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
               >
                 {isMenuOpen ? (
-                  <X className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-300" />
+                  <X className="w-4 h-4 text-gray-600 dark:text-gray-300" />
                 ) : (
-                  <Menu className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-300" />
+                  <Menu className="w-4 h-4 text-gray-600 dark:text-gray-300" />
                 )}
               </button>
             </div>
@@ -91,12 +91,12 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, setActiveSection
       {/* Mobile Menu */}
       <div className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${isMenuOpen ? 'visible opacity-100' : 'invisible opacity-0'}`}>
         <div className="absolute inset-0 bg-white dark:bg-gray-900" />
-        <div className="relative h-full flex flex-col justify-center items-center space-y-8 px-4">
+        <div className="relative h-full flex flex-col justify-center items-center space-y-6 px-4">
           {navItems.map((item, index) => (
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className={`text-xl sm:text-2xl font-medium transition-all duration-500 ${
+              className={`text-xl font-medium transition-all duration-500 ${
                 activeSection === item.id
                   ? 'text-blue-500'
                   : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
