@@ -3,7 +3,8 @@ import React from 'react';
 import { useScrollTrigger } from '../hooks/useScrollTrigger';
 
 const Testimonials = () => {
-  const { elementRef, isVisible } = useScrollTrigger();
+  const { elementRef: headerRef, isVisible: headerVisible } = useScrollTrigger({ threshold: 0.2 });
+  const { elementRef: gridRef, isVisible: gridVisible } = useScrollTrigger({ threshold: 0.1 });
 
   const testimonials = [
     {
@@ -40,10 +41,8 @@ const Testimonials = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div 
-            ref={elementRef}
-            className={`text-center mb-16 transition-all duration-700 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
+            ref={headerRef}
+            className={`text-center mb-16 transition-all duration-700 ease-out ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
               What People Say
@@ -53,17 +52,13 @@ const Testimonials = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <div
                 key={testimonial.id}
-                className={`bg-card border border-border rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 ${
-                  isVisible 
-                    ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-10'
-                }`}
+                className={`bg-card border border-border rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 ${gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                 style={{ 
-                  transitionDelay: isVisible ? `${index * 200}ms` : '0ms' 
+                  transitionDelay: gridVisible ? `${index * 150}ms` : '0ms'
                 }}
               >
                 <div className="flex items-center mb-4">
