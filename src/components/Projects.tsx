@@ -231,15 +231,15 @@ const Projects: React.FC = () => {
       {/* Preview Modal */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent className="max-w-6xl w-full h-[90vh] p-0 gap-0">
-          <DialogHeader className="px-6 py-3 border-b border-gray-200 dark:border-gray-700 shrink-0">
-            <DialogTitle className="text-lg font-semibold text-left">
+          <DialogHeader className="px-4 py-2 border-b border-gray-200 dark:border-gray-700 shrink-0">
+            <DialogTitle className="text-base font-medium text-left">
               {selectedProject?.title} - Live Preview
             </DialogTitle>
             <DialogDescription className="sr-only">
               Live preview of {selectedProject?.title}
             </DialogDescription>
           </DialogHeader>
-          <div className="flex-1 min-h-0 p-2">
+          <div className="flex-1 min-h-0 p-1">
             {selectedProject?.url && (
               <iframe
                 src={selectedProject.url}
