@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useScrollTrigger } from '../hooks/useScrollTrigger';
 import { ExternalLink, Github, Eye } from 'lucide-react';
@@ -8,6 +7,7 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
+  DialogDescription,
 } from './ui/dialog';
 
 const Projects: React.FC = () => {
@@ -230,13 +230,16 @@ const Projects: React.FC = () => {
 
       {/* Preview Modal */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="max-w-6xl w-full h-[80vh]">
-          <DialogHeader>
-            <DialogTitle className="text-xl font-bold">
+        <DialogContent className="max-w-6xl w-full h-[90vh] p-0 gap-0">
+          <DialogHeader className="px-6 py-3 border-b border-gray-200 dark:border-gray-700 shrink-0">
+            <DialogTitle className="text-lg font-semibold text-left">
               {selectedProject?.title} - Live Preview
             </DialogTitle>
+            <DialogDescription className="sr-only">
+              Live preview of {selectedProject?.title}
+            </DialogDescription>
           </DialogHeader>
-          <div className="flex-1 min-h-0">
+          <div className="flex-1 min-h-0 p-2">
             {selectedProject?.url && (
               <iframe
                 src={selectedProject.url}
