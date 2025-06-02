@@ -42,14 +42,6 @@ const Projects: React.FC = () => {
 
   const projects = React.useMemo(() => [
     {
-      title: "CryptoDailySplit — Daily Crypto Investment Platform",
-      description: "Built with Lovable AI, a modern platform for daily cryptocurrency investment tracking and portfolio management. Features real-time crypto data, investment splitting algorithms, and comprehensive portfolio analytics.",
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop&crop=center",
-      tech: ["React", "Vite", "Tailwind CSS", "TypeScript", "Lovable"],
-      category: "SaaS",
-      url: "https://cryptodailysplit.com/"
-    },
-    {
       title: "TaskPay — Secure Service Contracting Platform",
       description: "Built a scalable platform using Next.js and Google Cloud, supporting thousands of real-time transactions weekly. Integrated ACH, Wire, RTP payments via IBANERA, NMI, and PayPal, increasing success rates by 30%.",
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop&crop=center",
@@ -57,6 +49,15 @@ const Projects: React.FC = () => {
       category: "Full Stack",
       url: "https://taskpay.com"
     },
+    {
+      title: "CryptoDailySplit — Daily Crypto Investment Platform",
+      description: "Built with Lovable AI, a modern platform for daily cryptocurrency investment tracking and portfolio management. Features real-time crypto data, investment splitting algorithms, and comprehensive portfolio analytics.",
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop&crop=center",
+      tech: ["React", "Vite", "Tailwind CSS", "TypeScript", "Lovable"],
+      category: "SaaS",
+      url: "https://cryptodailysplit.com/"
+    },
+
     {
       title: "Clone Hub — AI-Powered Digital Engagement Platform",
       description: "Developed a SaaS product with Next.js and PostgreSQL, powering over 10,000 AI clones for 24/7 audience engagement. Boosted user retention by 40% with monetization via subscriptions and pay-per-use.",
