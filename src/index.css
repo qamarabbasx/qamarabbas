@@ -73,13 +73,24 @@
     @apply border-border;
   }
 
+  html,
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
   }
   
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Prevent horizontal overflow */
+  #root {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 
   /* Custom Scrollbar */
@@ -163,12 +174,22 @@
   /* Marquee animations */
   .marquee-section {
     position: relative;
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+  }
+
+  .marquee-container {
+    width: 100%;
+    max-width: 100vw;
   }
 
   .marquee {
     display: inline-block;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
+    width: auto;
+    min-width: 100%;
   }
 
   .animate-scroll-right {
