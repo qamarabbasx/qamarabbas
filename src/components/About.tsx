@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useScrollTrigger } from '../hooks/useScrollTrigger';
 import { Download, MapPin, Calendar, Mail, Phone, Linkedin, Github } from 'lucide-react';
@@ -54,7 +55,7 @@ const About: React.FC = () => {
                     <img 
                       src="/lovable-uploads/6bf158af-c16b-48e3-98d5-a39b0f74790a.png" 
                       alt="Qamar Abbas - Software Engineer"
-                      className="w-full h-full object-cover object-center"
+                      className="w-full h-full object-cover object-top"
                     />
                   </div>
                 </div>
