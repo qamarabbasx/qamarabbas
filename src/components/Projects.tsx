@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useScrollTrigger } from '../hooks/useScrollTrigger';
 import { ExternalLink, Github, Eye, X } from 'lucide-react';
@@ -230,25 +229,25 @@ const Projects: React.FC = () => {
         </div>
       </div>
 
-      {/* Custom Preview Modal */}
+      {/* Custom Preview Modal with Blue Gradient */}
       {isModalOpen && selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div 
             className="absolute inset-0 bg-black/80 backdrop-blur-sm"
             onClick={() => setIsModalOpen(false)}
           />
-          <div className="relative w-full max-w-6xl max-h-[90vh] bg-gradient-to-br from-orange-400 via-red-500 to-pink-500 rounded-3xl shadow-2xl overflow-hidden">
+          <div className="relative w-full max-w-6xl max-h-[90vh] bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-700 rounded-3xl shadow-2xl overflow-hidden">
             {/* Header */}
             <div className="flex items-center justify-between p-6 bg-white/10 backdrop-blur-sm border-b border-white/20">
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
-                  <span className="text-orange-200 text-sm font-medium">Preview</span>
+                  <div className="w-2 h-2 bg-blue-300 rounded-full"></div>
+                  <span className="text-blue-200 text-sm font-medium">Preview</span>
                 </div>
                 <h2 className="text-xl font-bold text-white">
                   {selectedProject.title}
                 </h2>
-                <p className="text-orange-100 text-sm mt-1">
+                <p className="text-blue-100 text-sm mt-1">
                   Live website preview
                 </p>
               </div>
