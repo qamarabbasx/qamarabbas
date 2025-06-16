@@ -237,17 +237,17 @@ const Projects: React.FC = () => {
             onClick={() => setIsModalOpen(false)}
           />
           <div className="relative w-full max-w-6xl max-h-[90vh] bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-700 rounded-3xl shadow-2xl overflow-hidden">
-            {/* Header */}
-            <div className="flex items-center justify-between p-6 bg-white/10 backdrop-blur-sm border-b border-white/20">
+            {/* Header - Reduced padding and spacing */}
+            <div className="flex items-center justify-between p-4 bg-white/10 backdrop-blur-sm border-b border-white/20">
               <div>
                 <div className="flex items-center gap-2 mb-1">
                   <div className="w-2 h-2 bg-blue-300 rounded-full"></div>
                   <span className="text-blue-200 text-sm font-medium">Preview</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-lg font-bold text-white">
                   {selectedProject.title}
                 </h2>
-                <p className="text-blue-100 text-sm mt-1">
+                <p className="text-blue-100 text-xs">
                   Live website preview
                 </p>
               </div>
@@ -256,7 +256,7 @@ const Projects: React.FC = () => {
                   href={selectedProject.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-white/30 rounded-full transition-colors duration-200 text-white text-sm font-medium"
+                  className="flex items-center gap-2 px-3 py-1.5 bg-white/20 hover:bg-white/30 rounded-full transition-colors duration-200 text-white text-sm font-medium"
                 >
                   <ExternalLink className="w-4 h-4" />
                   Open Site
@@ -265,13 +265,13 @@ const Projects: React.FC = () => {
                   onClick={() => setIsModalOpen(false)}
                   className="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors duration-200"
                 >
-                  <X className="w-6 h-6 text-white" />
+                  <X className="w-5 h-5 text-white" />
                 </button>
               </div>
             </div>
             
-            {/* Content */}
-            <div className="relative h-[calc(90vh-120px)]">
+            {/* Content - Adjusted height to account for smaller header */}
+            <div className="relative h-[calc(90vh-100px)]">
               <div className="absolute inset-4 bg-white rounded-2xl shadow-xl overflow-hidden">
                 <iframe
                   src={selectedProject.url}
