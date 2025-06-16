@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useScrollTrigger } from '../hooks/useScrollTrigger';
 import { ExternalLink, Github, Eye, X } from 'lucide-react';
@@ -251,12 +252,23 @@ const Projects: React.FC = () => {
                   Live website preview
                 </p>
               </div>
-              <button
-                onClick={() => setIsModalOpen(false)}
-                className="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors duration-200"
-              >
-                <X className="w-6 h-6 text-white" />
-              </button>
+              <div className="flex items-center gap-3">
+                <a
+                  href={selectedProject.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-white/30 rounded-full transition-colors duration-200 text-white text-sm font-medium"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  Open Site
+                </a>
+                <button
+                  onClick={() => setIsModalOpen(false)}
+                  className="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors duration-200"
+                >
+                  <X className="w-6 h-6 text-white" />
+                </button>
+              </div>
             </div>
             
             {/* Content */}
