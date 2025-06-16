@@ -1,6 +1,6 @@
 import React from 'react';
 import { useScrollTrigger } from '../hooks/useScrollTrigger';
-import { ExternalLink, Github, Eye } from 'lucide-react';
+import { ExternalLink, Github, Eye, X } from 'lucide-react';
 import { useToast } from '../hooks/use-toast';
 import {
   Dialog,
@@ -229,29 +229,50 @@ const Projects: React.FC = () => {
         </div>
       </div>
 
-      {/* Preview Modal */}
-      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="max-w-6xl w-full h-[90vh] p-0 gap-0">
-          <DialogHeader className="px-4 py-2 border-b border-gray-200 dark:border-gray-700 shrink-0">
-            <DialogTitle className="text-base font-medium text-left">
-              {selectedProject?.title} - Live Preview
-            </DialogTitle>
-            <DialogDescription className="sr-only">
-              Live preview of {selectedProject?.title}
-            </DialogDescription>
-          </DialogHeader>
-          <div className="flex-1 min-h-0 p-1">
-            {selectedProject?.url && (
-              <iframe
-                src={selectedProject.url}
-                className="w-full h-full border-0 rounded-lg"
-                title={`Preview of ${selectedProject.title}`}
-                sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-              />
-            )}
+      {/* Custom Preview Modal */}
+      {isModalOpen && selectedProject && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div 
+            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            onClick={() => setIsModalOpen(false)}
+          />
+          <div className="relative w-full max-w-6xl max-h-[90vh] bg-gradient-to-br from-orange-400 via-red-500 to-pink-500 rounded-3xl shadow-2xl overflow-hidden">
+            {/* Header */}
+            <div className="flex items-center justify-between p-6 bg-white/10 backdrop-blur-sm border-b border-white/20">
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                  <span className="text-orange-200 text-sm font-medium">Preview</span>
+                </div>
+                <h2 className="text-xl font-bold text-white">
+                  {selectedProject.title}
+                </h2>
+                <p className="text-orange-100 text-sm mt-1">
+                  Live website preview
+                </p>
+              </div>
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors duration-200"
+              >
+                <X className="w-6 h-6 text-white" />
+              </button>
+            </div>
+            
+            {/* Content */}
+            <div className="relative h-[calc(90vh-120px)]">
+              <div className="absolute inset-4 bg-white rounded-2xl shadow-xl overflow-hidden">
+                <iframe
+                  src={selectedProject.url}
+                  className="w-full h-full border-0"
+                  title={`Preview of ${selectedProject.title}`}
+                  sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+                />
+              </div>
+            </div>
           </div>
-        </DialogContent>
-      </Dialog>
+        </div>
+      )}
     </section>
   );
 };
