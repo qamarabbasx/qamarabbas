@@ -42,6 +42,16 @@ const About: React.FC = () => {
 
   const typewriterWords = ["Software Engineer", "Web Designer", "Freelancer", "Backend Developer", "Full Stack Developer"];
 
+  const handleDownloadCV = () => {
+    // Create a link element and trigger download
+    const link = document.createElement('a');
+    link.href = '/resume.pdf'; // Path to your PDF file in the public folder
+    link.download = 'Qamar_Abbas_Resume.pdf'; // Filename for download
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section id="about" className="min-h-screen flex items-center justify-center py-16 sm:py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4 sm:px-6">
@@ -129,7 +139,10 @@ const About: React.FC = () => {
                   </a>
                 </div>
 
-                <button className="inline-flex items-center space-x-3 bg-blue-500 hover:bg-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full transition-colors duration-300">
+                <button 
+                  onClick={handleDownloadCV}
+                  className="inline-flex items-center space-x-3 bg-blue-500 hover:bg-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full transition-colors duration-300"
+                >
                   <Download className="w-5 h-5" />
                   <span className="font-medium">Download CV</span>
                 </button>
