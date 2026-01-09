@@ -10,7 +10,7 @@ const About: React.FC = () => {
   const { elementRef: skillsRef, isVisible: skillsVisible } = useScrollTrigger({ threshold: 0.4 });
 
   const personalInfo = [
-    { icon: Calendar, label: "Experience", value: "4+ Years" },
+    { icon: Calendar, label: "Experience", value: "5+ Years" },
     { icon: MapPin, label: "Location", value: "Lahore, Pakistan" },
     { icon: Mail, label: "Email", value: "reply.qamar@gmail.com" },
     { icon: Phone, label: "Phone", value: "+923415456062" },
@@ -97,10 +97,13 @@ const About: React.FC = () => {
                     Backend-focused Full Stack Developer
                   </h2>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-base sm:text-lg">
-                    Backend-focused Full-Stack Developer with 4+ years of experience in the MERN stack, 
+                    Backend-focused Full-Stack Developer with 5+ years of experience in the MERN stack, 
                     specializing in backend architecture and scalable API development. Proficient in building 
                     robust server-side logic, integrating modern frontend interfaces, and delivering 
-                    high-performance web applications.
+                    high-performance web applications. Proven track record of Shopify app development using 
+                    Remix, Gadget, and Polaris, delivering solutions to 100,000+ merchants. Proficient in Agile 
+                    methodologies, third-party API integrations, and delivering high-quality, maintainable code 
+                    across frontend and backend architectures.
                   </p>
                 </div>
 
