@@ -12,7 +12,7 @@ const Testimonials = () => {
       name: "Ali Abbas",
       role: "Senior Technical Project Manager",
       company: "Vaival Technologies",
-      image: "https://media.licdn.com/dms/image/v2/D5603AQGPIDcF-6l3ug/profile-displayphoto-shrink_200_200/B56Zb4UR86HUAc-/0/1747922795426?e=1754524800&v=beta&t=NY2OdgnR1t-dRA_w6LqV7mLkbvyR4dVDuwcND_u4OPw",
+      image: "/lovable-uploads/ali-abbas.png",
       text: "Qamar's outstanding Node.js capabilities, combined with his punctuality, professionalism, and leadership qualities, make him an invaluable asset to any development team. I highly recommend him for any project requiring top-tier Node.js expertise and effective team leadership.",
       linkedinUrl: "https://www.linkedin.com/in/aliabbaspasha/"
     },
