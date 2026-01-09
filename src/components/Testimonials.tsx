@@ -21,7 +21,7 @@ const Testimonials = () => {
       name: "Muhammad Arsalan",
       role: "Team Lead",
       company: "Vaival Technologies",
-      image: "https://media.licdn.com/dms/image/v2/D4D35AQHa3QKbTAjoLg/profile-framedphoto-shrink_200_200/B4DZV_BDkeHwAc-/0/1741592738398?e=1749409200&v=beta&t=y1f1-5h06NzYRZjGQ4b9UTrLlIOa9Sfh86rvw-JZohQ",
+      image: "/lovable-uploads/muhammad-arsalan.png",
       text: "Qamar is not only technically proficient but also a great problem solver who approaches issues with a strategic mindset. His attention to detail, ability to write clean and scalable code, and commitment to delivering high-quality solutions make him an invaluable asset to any team.",
       linkedinUrl: "https://www.linkedin.com/in/muhammad-arsalan-5334a2164/"
     },
