@@ -30,7 +30,7 @@ const Testimonials = () => {
       name: "Nimra Haider",
       role: "Lead Developer",
       company: "Black Lion Innovations Group",
-      image: "https://media.licdn.com/dms/image/v2/D4D03AQFEdMrKtMXeRA/profile-displayphoto-shrink_200_200/B4DZWO3trtG8Ag-/0/1741858725821?e=1754524800&v=beta&t=Y_XBu7yGU3BYyQQ39owK7E0XfrWi2iEsRdUe36okBMA",
+      image: "/lovable-uploads/nimra-haider.png",
       text: "Qamar consistently impressed me with his strong technical skills, particularly in areas such as database management and server-side scripting. His attention to detail and problem-solving abilities were evident in every task he undertook. I wholeheartedly recommend him for any backend development role.",
       linkedinUrl: "https://www.linkedin.com/in/nimrahaider320/"
     }
